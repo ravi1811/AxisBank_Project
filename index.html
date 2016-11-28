@@ -1,0 +1,3550 @@
+
+
+     <!DOCTYPE html>  <!-- saved from url=(0014)about:internet --> 
+       
+
+        <html xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<title>HRDashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=100"/>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+  
+  <link rel="stylesheet" href="resources/css/style.css">       
+ <!--   <link rel="stylesheet" href=" http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css">       
+  -->        
+             <link rel="stylesheet" href="resources/css/bootstrap.css">     
+               <!--  <link rel="stylesheet" href="resources/css/AdminLTE.min.css">   
+                  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->  
+         
+             <script src="resources/js/jquery.min.js"></script>     
+         
+             <script src="resources/js/bootstrap.js"></script>     
+        
+     
+   <!--   <script src="resources/amchart/plugins/dataloader/dataloader.min.js"></script> -->
+  <!--    <script src="resources/js/app.min.js"></script> -->
+    
+      	<script type="text/javascript" src="resources/amchart/amcharts.js"></script>
+    <!-- <script src="https://www.amcharts.com/lib/3/amcharts.js"></script> -->
+    	
+		<script type="text/javascript" src="resources/amchart/serial.js"></script>
+		
+		<link  type="text/css" href="resources/amchart/plugins/export/export.css" rel="stylesheet">
+<script src="resources/amchart/plugins/export/export.js"></script>
+<script src="resources/amchart/plugins/export/examples/export.config.default.js"></script>
+<script src="resources/amchart/gauge.js"></script>
+         
+     <style type="text/css">
+         
+       .marginBottom-0 {margin-bottom:0;}
+
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#555;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+
+           
+         </style>
+<!-- <script type="text/javascript">
+        
+            (function($){
+	$(document).ready(function(){
+		$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+			event.preventDefault(); 
+			event.stopPropagation(); 
+			$(this).parent().siblings().removeClass('open');
+			$(this).parent().toggleClass('open');
+		});
+	});
+})(jQuery);
+        
+        </script> -->
+<style type="text/css">
+         .caption {
+        width:100%;
+        bottom: .3rem;
+        position: absolute;
+        background:#ad295f;
+        background: -webkit-linear-gradient(bottom, #ad295f 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        background: -moz-linear-gradient(bottom, #ad295f 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        background: -o-linear-gradient(bottom, #ad295f 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        background: linear-gradient(to top, #ad295f 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    }
+    
+      .thumbnail {
+        border: 0 none;
+        box-shadow: none;
+        margin:0;
+        padding:0;
+    }
+    
+    .caption h6 {
+        color: #fff;
+            margin-top: 20px;
+            margin-bottom:0px;
+        -webkit-font-smoothing: antialiased;
+    }
+  
+   selcls { 
+    padding: 9px; 
+    border: solid 1px #517B97; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CAD9E3), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #CAD9E3 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+    } 
+
+
+.chart-data {
+  width: 900px;
+  max-width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  overflow: auto;
+  border: 2px solid #eee;
+}
+
+table {
+  width: 100%;
+}
+
+table th, table td {
+  text-align: center;
+  padding: 5px 7px;
+}
+
+table th {
+  background: #999;
+  color: #fff;
+}
+
+table td {
+  border-bottom: 1px solid #eee;
+}
+
+table td.row-title {
+  font-weight: bold;
+}
+
+ 
+
+
+
+.axis_responsive_menu_icon_div {
+                    width: 100%;
+                }
+.axis_social_icon_footer {
+             
+                padding: 10px 0;
+                border-top: 8px solid #D51B64;
+            }
+            .axis_social_icon_footer .col-md-4 p {
+                color: #000000;
+                margin-top: 15px;
+                text-align: center;
+            }
+            .axis_social_icon_footer .col-md-4 b {
+                color: #D51B64;
+                color: #000000;
+                float: right;
+                margin: 15px 15px 0 0;
+            }
+            .axis_social_icon_footer .col-md-4 {
+                margin: 6px 0;/* border-top:1px solid #EAEAEA;*/
+                padding-top: 10px;
+                float: left;
+            }
+            .axis_social_icon_footer .col-md-4:first-child .center-block a {
+                width: 12%;
+                margin: 0 2%;
+                float: left;
+            }
+           .mt-40 {margin-top:-40px; z-inded:1}
+         </style>
+ <link rel="stylesheet" href="resources/css/newstyle.css"> 
+<script type="text/javascript">
+ 
+        
+            $(document).ready(function() {
+           // //debugger;
+                $(function() {
+                   // $('.footable_responsive').stacktable();
+                });
+
+                var mHeight = window.innerHeight;
+                $(".container-fluid").css("height", mHeight + "px");
+                $("._scrollable").css("height", (mHeight - 100) + "px");
+
+
+                $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+                    $(window).scrollTop(0);
+                    e.target // newly activated tab
+                    e.relatedTarget // previous active tab
+                });
+
+
+            });
+
+
+
+
+            /* $(document).ready(function() {
+            //debugger;
+           
+           $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
+           
+                var sideslider = $('[data-toggle=collapse-side]');
+                var sel = sideslider.attr('data-target');
+                var sel2 = sideslider.attr('data-target-2');
+                sideslider.click(function(event) {
+                    $(sel).toggleClass('in');
+                    $(sel2).toggleClass('out');
+                });
+
+                $('.over_lay, .axis_responsive_nav .container .side-collapse .navbar .collapse ul li a').click(function(e) {
+                    $('.axis_fix_content').css('position', 'relative');
+                    $('.side-collapse').addClass('in');
+                    $('.over_lay').css('display', 'none');
+                });
+
+                $(".navbar-toggle").click(function() {
+
+                    if ($('.side-collapse').hasClass('in')) {
+                        $('.over_lay').css('display', 'none');
+                    } else {
+                        $('.over_lay').css('display', 'block');
+
+                    }
+                });
+
+                $('.nav li a').click(function(e) {
+                    $('.nav li').removeClass('active');
+                    e.preventDefault();
+                    $(this).tab('show');
+                });
+
+                $('a.scroll').on('click', function(e) {
+                    var href = $(this).attr('href');
+                    $('html, body').animate({
+                        scrollTop: $(href).offset().top
+                    }, 'slow');
+                    e.preventDefault();
+                });
+
+
+
+
+                      
+              });
+             */
+    
+</script>
+<script type="text/javascript">
+                      
+                        function callOnClick(value){
+                       // //debugger;
+                            var elements;
+                            if(typeof(document.getElementsByClassName) != "undefined"){
+                                elements=document.getElementsByClassName('hidediv');
+                            }else{
+                                elements=document.querySelectorAll(".hidediv");
+                            }
+                            for (var i = 0; i < elements.length; i++){
+                                    elements[i].style.display = 'none';
+                            }
+                            if(value.indexOf('#')>0){
+                                var parid=value.substring(0,value.indexOf('#'));							
+                                var chilid=value.substring(value.indexOf('#')+1,value.length);
+                                document.getElementById(parid).style.display = '';
+                                document.getElementById(chilid).style.display = '';							
+                            }else{
+                            document.getElementById(value).style.display = '';
+                            }
+                         };
+                         
+                         
+                          function trackImageCampaignRequest(imgid,id){
+                          
+                          $.ajax({
+        url:            'http://10.101.12.81:8070/InteractiveHtmlWebApp/campaignTracking.htm',
+        data:           {id: id, imageId: imgid},
+        dataType:       'jsonp',
+        
+
+        /* Very important */
+        contentType:    'application/json'
+    });
+                          
+                         // $.post( "http://10.101.12.81:8080/InteractiveCampaignService/campaignTracking.htm", { custId: "1234", imageId: "abcd" } );
+
+                          
+                          }
+                         
+
+/* $(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') ) {
+        $(this).collapse('hide');
+    }
+}); */
+
+                         
+                          
+                         
+
+
+
+
+/* $(window).load(function() { 
+
+    // cache the id
+    var navbox = $('.navbar-nav');
+
+    // activate tab on click
+    navbox.on('click', 'a', function (e) {
+    
+      var $this = $(this);
+      // prevent the Default behavior
+      e.preventDefault();
+      // send the hash to the address bar
+      window.location.hash = $this.attr('href');
+      // activate the clicked tab
+      $this.tab('show');
+    });
+
+    // will show tab based on hash
+    function refreshHash() {
+      navbox.find('a[href="'+window.location.hash+'"]').tab('show');
+    }
+
+    // show tab if hash changes in address bar
+    $(window).bind('hashchange', refreshHash);
+
+    // read has from address bar and show it
+    if(window.location.hash) {
+      // show tab on load
+      refreshHash();
+    }
+
+});
+
+         var navbox1 = $('.dropdown-submenu');
+         navbox1.on('click', 'a', function (e) { {
+        e.preventDefault();
+          $('.dropdown-submenu li.active').removeClass('active');
+    $(this).addClass('active');
+    }}); */
+    
+                 </script>
+<style>
+				 
+
+  body {
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAyCAMAAADyWtKhAAAAOVBMVEXu7u7////v7+/x8fHw8PD+/v79/f38/Pz29vb39/fy8vL09PTt7e319fX6+vr5+fn4+Pjz8/P7+/sjQsgnAAABrklEQVR4Xu2Wy2pkMQxET0ny+z77/z92EHRIM4RJejeLeGGMJbkKu1QYt0vVbajkJJWjTw+f/SiSBl40zKsuc5hVDzjVjEtlOB/DR9GFNZ3wUJ1wFmkRVQe0NoFYffQVwGwNDtVgSeUkgdh2acePAM9iZcghDidDG0mPetzgVdXwgJ6ZpeRcOoRjVdXhPipu4E1aYHBJOpeHr1PSBUbiNwdzDNtrbhvQpXbDtm1wN6kDxiXV3XJx1DzBCGMWtQDfx+4QTWVigSVaPS4kqS2IbpwqNySM6g530Yn1gNUkidLOFeCtExmjSypK/KwNenOwdbaCG7msurclLbyorlhVxcmN7VZdBphjZr4/pBJbz/iucm9sd9GedX2LIj12NzNi9uSXueNZEFjyGdvHlPz7jHfO/eQ7+ZIv85Nv3oP97B7eud/nu41/vtt4vttTDwPbYPylhwGbMZ56eNUZX+iMF5296nd+od/5ot93+uKtfrOXPj5VRvAxYhSdL31sBFcWDqUgEvvRZ6RKHkV6aiJhL+I1l+9y7cdeYv+pl/x6ya+X/HoJP/YSXv8afPPX+AONyic1BlYxVgAAAABJRU5ErkJggg==') repeat;
+                /*background-attachment: fixed;*/
+            }
+
+
+				 </style>
+</head>
+<!-- <body style=" background-image: url('resources/images/hrd_BACK12.jpg');   background-size: contain;"> -->
+<body >
+
+<div class="container-fluid">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="slide-nav">
+<div class="container">
+<div class="row">
+<div class="navbar-header axis_responsive_menu_icon_div">
+<button type="button" data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" class="navbar-toggle pull-right" style="margin-top:-40px; z-index:1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>    
+          </button>
+</div>
+<div style="margin-right:10px;">
+<div class="logoimg1">
+  <div class="container"><h2 class="main-title pull-left">HR DASHBOARD</h2>
+    <img src="resources/images/logo.jpg"/>
+  </div>
+</div>
+<!-- <img src="data:image/jpeg;base64,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" width="90" class="logoimg1"/> -->
+</div>
+
+
+<div class="side-collapse in">
+<nav role="navigation" class="navbar-collapse">
+<ul class="nav navbar-nav">
+<!-- 
+<li>
+<a href="home.htm"  > HOME</a>
+</li>
+ -->
+<li>
+<a href="snapshot.htm"  > SNAPSHOT</a>
+</li>
+<li>
+<a href="demographics.htm"  > DEMOGRAPHICS</a>
+</li>
+<li>
+<a href="verticalDeptStatusTableWise.htm"  > MAN POWER </a>
+</li> 
+
+
+<!-- <li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">MAN POWER  <b class="caret"></b>  </a>
+<ul class="dropdown-menu">
+<li>
+<a href="verticalDeptStatus.htm"  > MAN POWER </a>
+</li>
+
+
+<li>
+<a href="verticalDeptStatusBucketWise.htm"  > BUCKET WISE </a>
+</li>
+
+<li>
+<a href="verticalDeptStatusTableWise.htm"  > TABLE WISE </a>
+</li>
+
+
+<li>
+<a href="verticalDeptStatusSubTableWise.htm"  > SUB TABLE WISE </a>
+</li>
+</ul>
+</li>
+ -->
+
+
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">ATTRITION  <b class="caret"></b>  </a>
+<ul class="dropdown-menu">
+<li>
+<a href="attrition.htm"  > YOY ATTRITION </a>
+</li>
+
+<!-- 
+<li>
+<a href="verticalAttrition.htm"  > VERTICAL ATTRITION </a>
+</li>
+ -->
+
+<li>
+<a href="roleDeptAttrition.htm"  > ROLE & DEPT ATTRITION </a>
+</li>
+
+<li>
+<a href="earlyExit.htm"  > EARLY ATTRITION</a>
+</li>
+
+<li>
+<a href="exitMonitoring.htm"  > ATTRITION MONITORING</a>
+</li>
+</ul>
+</li>
+
+
+
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">CIRCLE ATTRITION  <b class="caret"></b>  </a>
+<ul class="dropdown-menu">
+<li>
+<a href="circleAttrition.htm"  > OVERALL ATTRITION </a>
+</li>
+
+
+<li>
+<a href="circleAttritionSales.htm"  > SALES ATTRITION </a>
+</li>
+
+
+<li>
+<a href="circleAttritionExcludeSales.htm"  > EXCLUDE SALES ATTRITION </a>
+</li>
+</ul>
+</li>
+
+
+<li class="pull-right">
+<a href="j_spring_security_logout"  class="pull-right" > LOGOUT </a>
+</li>
+
+
+
+<!-- <li>
+<a href="circleAttrition.htm"  > CIRCLE ATTRITION</a>
+</li>
+
+
+<li>
+<a href="circleAttritionSales.htm"  >  ATTRITION SALES</a>
+</li>
+
+
+
+<li>
+<a href="circleAttritionExcludeSales.htm"  > ATTRITION EXCLUDE SALES</a>
+</li> -->
+
+
+
+</ul>
+</nav>
+</div>
+
+<!-- 
+<ul class="nav navbar-nav">
+<li class="active">
+<a href="homepage.hmt" > HOME </a>
+</li>
+<li>
+<a href="snapshot.htm"  > SNAPSHOT</a>
+</li>
+<li>
+<a href="sanctionManpower.htm"  >SANCTOIN </a>
+</li>
+<li>
+<a href="demographics.htm"  > DEMOGRAPHICS</a>
+</li>
+<li>
+<a href="attrition.htm"  > ATTRITION </a>
+</li>
+<li>
+<a href="verticalAttrition.htm"  > VERTICAL ATTRITIOIN</a>
+</li>
+<li>
+<a href="roleDeptAttrition.htm"  > ROLE WISE ATTRITION </a>
+</li>
+<li>
+<a href="circleAttritioin.htm"  > CIRCLE ATTRITION</a>
+</li>
+
+
+
+</ul> -->
+<script>
+$(document).ajaxStart(function(){
+    $('#loading').show();
+ }).ajaxStop(function(){
+    $('#loading').hide();
+ });
+</script>
+
+
+</div>
+</div>
+</div>
+
+<div class="axis_fix_content scrollable _scrollable side-collapse-container">
+<div class="row">
+<div class="col-md-12">
+<div class="tabbable-panel">
+<div class="tabbable-line">
+<div class="tab-content axis_main_content_div">
+
+
+<script type="text/javascript">
+
+function changeRegion(regionVal){
+	$.ajax({
+		  url: "dropdown/getCircles.json",
+		  cache: false,
+		  format:"json",
+		  data: { region: regionVal.value},
+		  success: function(jsonData){
+			  
+				   $('#circleId').html("");
+				   $('#circleId').append('<option value=ALL>--SELECT CIRCLE--</option>');
+				   $('#clusterId').html("");
+				   $('#clusterId').append('<option value=ALL>--SELECT CLUSTER--</option>');
+				   $('#branchId').html("");
+				   $('#branchId').append('<option value=ALL>--SELECT BRANCH--</option>');
+			   $.each(jsonData, function (key, value) {
+		            $('#circleId').append('<option value=' + key + '>' + value + '</option>');
+		        });
+			  
+		  }
+	});
+}
+
+function changeCircle(circleVal){
+	$.ajax({
+		  url: "dropdown/getCluster.json",
+		  cache: false,
+		  format:"json",
+		  data: {circle : circleVal.value},
+		  success: function(jsonData){
+			  
+				   $('#clusterId').html("");
+				   $('#clusterId').append('<option value=ALL>--SELECT CLUSTER--</option>');
+				   $('#branchId').html("");
+				   $('#branchId').append('<option value=ALL>--SELECT BRANCH--</option>');
+			   $.each(jsonData, function (key, value) {
+		            $('#clusterId').append('<option value=' + key + '>' + value + '</option>');
+		        });
+			  
+		  }
+	});
+	
+}
+function changeCluster(clusterVal){
+	$.ajax({
+		  url: "dropdown/getBranch.json",
+		  cache: false,
+		  format:"json",
+		  data: {cluster : clusterVal.value},
+		  success: function(jsonData){
+			  
+				   $('#branchId').html("");
+				   $('#branchId').append('<option value=ALL>--SELECT BRANCH--</option>');
+			   $.each(jsonData, function (key, value) {
+		            $('#branchId').append('<option value=' + key + '>' + value + '</option>');
+		        });
+			  
+		  }
+	});
+}
+	function changeEd(edVal){
+		$.ajax({
+			  url: "dropdown/getDept.json",
+			  cache: false,
+			  format:"json",
+			  data: {ed : edVal.value},
+			  success: function(jsonData){
+				//  debugger;
+					   $('#deptId').html("");
+					   $('#deptId').append('<option value=ALL>--SELECT DEPT--</option>');
+				  /*  $.each(jsonData, function (key, value) {
+			            $('#deptId').append('<option value=' + key + '>' + value + '</option>');
+			        }); */
+				  
+				   
+				   var mySelect = $('#deptId');
+				   $.each(jsonData, function(val, text) {
+				       mySelect.append(
+				           $('<option></option>').val(val).html(text)
+				       );
+				   });
+				   
+			  }
+		});
+}
+
+$(document).ready(function(){
+	
+	$('#switch-forms .btn').on('click', function() {
+	//	alert($(this).isActive());
+	
+		
+	    $('#switch-forms .btn').parent().removeClass('active');
+	    $('#switch-forms .btn').removeClass('active');
+	    var $this = $(this);
+	    $this.parent().addClass('active');
+	    $this.addClass('active');
+	   
+	});
+	$('#edDept_click').on('click', function() {
+		
+	    $('#geographicFormSubDiv').hide();
+	    $('#edDeptFormSubDiv').show();
+	});
+	$('#geographic_click').on('click', function() {
+	    $('#edDeptFormSubDiv').hide();
+	    $('#geographicFormSubDiv').show();
+	});
+});
+</script>
+<style>
+#edDeptFormSubDiv { display: none; }
+</style>
+
+
+<div class="tab-pane active" >
+
+<div class="container" style="margin-top:120px;">
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="col-sm-4 col-sm-offset-4">
+    <div class="btn-group btn-group-justified">
+        <div class="btn-group">
+          <button type="button" id="login_click" class="btn btn-default active" data-toggle="button">Login</button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" id="register_click" class="btn btn-default">Register</button>
+        </div>
+    </div>
+</div>
+
+<div id="login_form" class="col-sm-4 col-sm-offset-4">
+    <p>Login Form</p>
+</div>
+
+<div id="register_form" clas="col-sm-4 col-sm-offset-4">
+    <p>Register Form</p>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row axis_margin_row">
+
+
+<form id="dropdownBean" action="/HRDashboard/snapshot.htm" method="post">
+<div align="center" class="row axis_margin_row" >
+
+
+
+
+
+<div id="switch-forms"  class="col-sm-4 col-sm-offset-4">
+    <div  align="center" class="btn-group btn-group-justified" style="margin-top:5px; width: 50%">
+        <div class="btn-group active">
+          <button type="button" value="Geo" id="geographic_click" class="btn btn-default active" data-toggle="button">Geography</button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" value="Dep" id="edDept_click" class="btn btn-default">Dept</button>
+        </div>
+    </div>
+</div>
+
+<div id="edDeptFormSubDiv"  class="col-sm-4 col-sm-offset-4">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group">
+          						<!-- <label for="edId" class="col-sm-2 control-label">ED:</label> -->
+
+												<select id="edId" name="ed" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls selectpicker" onchange="changeEd(this)">
+													<option value="ALL">--SELECT ED--</option>
+													<option value="RETAIL BANKING">RETAIL BANKING</option><option value="CORPORATE BANKING">CORPORATE BANKING</option><option value="CORPORATE CENTRE">CORPORATE CENTRE</option><option value="OTHERS">OTHERS</option>
+
+												</select>
+        </div>
+
+        <div class="btn-group">
+         <!--  <label for="deptId" class="col-sm-2 control-label">Dept:</label> -->
+												<select id="deptId" name="dept" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls">
+													<option value="ALL">--SELECT DEPT--</option>
+												</select>
+        </div>
+    </div>
+</div>
+
+<div id="geographicFormSubDiv">
+<div  class="col-sm-4 col-sm-offset-4">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group">
+          						<!-- <label for="regionId" class="col-sm-2 control-label">Region:</label> -->
+
+												<select id="regionId" name="region" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls selectpicker" onchange="changeRegion(this)">
+													<option value="ALL">--SELECT REGION--</option>
+													<option value="NZONE">NORTH</option><option value="SZONE">SOUTH</option><option value="EZONE">EAST</option><option value="CO">CO</option><option value="WZONE">WEST</option>
+
+												</select>
+        </div>
+
+        <div class="btn-group">
+        <!-- <label for="circleId" class="col-sm-2 control-label">Circle:</label> -->
+												<select id="circleId" name="circle" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls" onchange="changeCircle(this)">
+													<option value="ALL">--SELECT CIRCLE--</option>
+												</select>
+        </div>
+    </div>
+</div>
+<div  class="col-sm-4 col-sm-offset-4">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group">
+          						<!-- <label for="clusterId" class="col-sm-2 control-label">Cluster:</label> -->
+												<select id="clusterId" name="cluster" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls" onchange="changeCluster(this)">
+													<option value="ALL">--SELECT CLUSTER--</option>
+												</select>
+        </div>
+
+        <div class="btn-group">
+        <!--  <label for="branchId" class="col-sm-2 control-label">Branch:</label> -->
+												<select id="branchId" name="branch" style="border: 1px solid #ad295f;" data-style="btn-primary" class="form-control selcls">
+													<option value="ALL">--SELECT BRANCH--</option>
+												</select>
+        </div>
+    </div>
+</div>
+</div>
+
+<div  class="col-sm-4 col-sm-offset-4">
+    <div align="center"class="btn-group btn-group-justified" style="margin-top:5px;width: 20%">
+        <div class="btn-group">
+          						<input class="form-control btn-primary" style="align:center; background-color: #ad295f; border-color: #ad295f;" type="button" name="SubmitSelection" value="Submit" onclick="submitDropdownSelection()" />
+        </div>
+
+       
+    </div>
+</div>
+
+
+
+
+
+<!-- <div class="col-md-12" >
+<div align="center" class="row" style="margin-top:5px;">
+
+
+
+<div class="col-md-12" >
+<table style="width: 50%">
+									<tr>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+
+						
+											</div>
+										</td>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+												
+											</div>
+										</td>
+									</tr>
+									
+										<tr>
+										<td>
+											<div class="col-md-3"  style="width:100%;" style="margin-top:5px;">
+												<input class="form-control btn-primary" style="align:center;" type="button" name="SubmitSelection" value="Submit" onclick="submitDropdownSelection()"/>
+											</div>
+										</td>
+										<td>
+											
+										</td>
+									</tr>
+								</table>
+								
+
+
+
+</div>
+</div>
+</div>
+ -->
+
+
+
+<!-- <div class="col-md-12" >
+<div align="center" class="row" style="margin-top:5px;">
+
+<div class="col-md-12" >
+<table style="width: 50%">
+									<tr>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+
+												
+											</div>
+										</td>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+												
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+												
+											</div>
+										</td>
+										<td>
+											<div class="col-md-3" style="width:100%;">
+												
+											</div>
+										</td>
+									</tr>
+										<tr>
+										<td>
+											<div class="col-md-3"  style="width:100%;" style="margin-top:5px;">
+												<input class="form-control btn-primary" style="align:center;" type="button" name="SubmitSelection" value="Submit" onclick="submitDropdownSelection()"/>
+											</div>
+										</td>
+										<td>
+											
+										</td>
+									</tr>
+								</table>
+								
+
+
+
+</div>
+
+</div>
+</div> -->
+</div>
+
+</form>
+</div>
+</div>
+
+
+</div>
+<!-- <div id="loading" style="align:center" >
+  <img src="resources/images/ajax-loader.gif" />
+</div> -->
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	submitDropdownSelection();
+
+});
+function submitDropdownSelection(){	
+	
+	var role = "";
+	var areaCode = "";
+	var region = $('#regionId').val();
+	var circle = $('#circleId').val();
+	var cluster = $('#clusterId').val();
+	var branch = $('#branchId').val();
+
+	var ed = $('#edId').val();
+	var dept = $('#deptId').val();
+	var flag = $('#switch-forms .btn-group.active .btn').val();
+		//alert($('#switch-forms .btn-group.active .btn').val());
+
+		//alert($('.btn-group > .btn.active').text());
+		/*  var region="";
+			var circle="";
+			var cluster="";
+			var branch=""; */
+
+		loadTotoalEmployeeStrengthGraph(region, circle, cluster, branch, role,
+				areaCode, ed, dept, flag);
+		loadNewHiresAndExitsGraph(region, circle, cluster, branch, role,
+				areaCode, ed, dept, flag);
+
+		loadAvgAgeGraph(region, circle, cluster, branch, role, areaCode, ed,
+				dept, flag);
+		loadAvgTenureGraph(region, circle, cluster, branch, role, areaCode, ed,
+				dept, flag);
+		loadGenderRatioSalesGraph(region, circle, cluster, branch, role,
+				areaCode, ed, dept, flag);
+		loadGenderRatioGraph(region, circle, cluster, branch, role, areaCode,
+				ed, dept, flag);
+
+	}
+
+	function loadTotoalEmployeeStrengthGraph1234(region, circle, cluster, branch,
+			role, areaCode, ed, dept, flag) {
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/getTotoalEmployeeStrength.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+
+						AmCharts.exportCFG.fileName = "TotoalEmployeeStrengthChartData";
+
+						AmCharts.exportCFG.position = 'top-left';
+						AmCharts.exportCFG.menu[0].menu.splice(0, 10);
+						AmCharts.exportCFG.menu[0].menu
+								.push({
+									"label" : "Display data",
+									"click" : function() {
+
+									
+								//	AmCharts.exportCFG.click = function() {
+										// get chart object
+										var chart = this.setup.chart;
+
+										// get chart data
+										var data = chart.dataProvider;
+
+										// create a table
+										var holder = document
+												.createElement("div");
+										holder.className = "chart-data";
+										var table = document
+												.createElement("table");
+										holder.appendChild(table);
+										var tr, td;
+
+										// add first row
+										for (var x = 0; x < chart.dataProvider.length; x++) {
+											// first row
+											if (x == 0) {
+												tr = document
+														.createElement("tr");
+												table.appendChild(tr);
+												td = document
+														.createElement("th");
+												td.innerHTML = chart.categoryAxis.title;
+												tr.appendChild(td);
+												for (var i = 0; i < chart.graphs.length; i++) {
+													td = document
+															.createElement('th');
+													td.innerHTML = chart.graphs[i].title;
+													tr.appendChild(td);
+												}
+											}
+
+											// add rows
+											tr = document.createElement("tr");
+											table.appendChild(tr);
+											td = document.createElement("td");
+											td.className = "row-title";
+											td.innerHTML = chart.dataProvider[x][chart.categoryField];
+											tr.appendChild(td);
+											for (var i = 0; i < chart.graphs.length; i++) {
+												td = document
+														.createElement('td');
+												td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+												tr.appendChild(td);
+											}
+										}
+
+										// append to the document
+										chart.containerDiv.appendChild(holder);
+
+										// replace menu
+										 this
+												.createMenu([ {
+													"class" : "export-main export-close",
+													label : "Done",
+													click : function() {
+														this
+																.createMenu(this.config.menu);
+														chart.containerDiv
+																.removeChild(holder);
+													}
+												} ]); 
+									}
+								});
+						//  AmCharts.exportCFG.menuLeft='0px';
+					//	AmCharts.exportCFG.menu[0].menu.splice(5, 10);
+					
+						
+						var totoalEmployeeStrengthChart = AmCharts
+								.makeChart(
+										"totoalEmployeeStrengthDiv",
+										{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+										/* 	"colors" : [ "#0488fc"
+											"#B0DE09",
+											"#FCD202",
+											"#FF6600",
+											"#0D8ECF",
+											"#2A0CD0",
+											"#CD0D74",
+											"#CC0000",
+											"#00CC00",
+											"#0000CC",
+											"#DDDDDD",
+											"#999999",
+											"#333333",
+											"#990000" 
+											], */
+
+											 //"colors" : [ "#00b359","#ffa31a","#0080ff" ],
+											// "colors" : [ "#2d2de2","#FBE405","#E11010" ],
+											"colors" : [ "#43d5f4","#f8bd19","#4274e0","#45CA6C","#e0425f" ],
+											
+											 
+											"startDuration" : 1,
+											"categoryAxis" : {
+												"gridPosition" : "start",
+												"gridAlpha" : 0,
+												"axisAlpha" : 0,
+												"labelRotation" : 40,
+												"title":"Month"
+										//		"title" : "MGMT Type"
+											},
+											"trendLines" : [],
+											"graphs" : [ {
+												"balloonText" : "<b style='font-size: 130%'>[[value]] </b> ",
+												"fillAlphas" : 1,
+												"labelText" : "[[value]]",
+												"id" : "TotoalEmployeeStrength",
+												"title" : "No. of Employees ",
+												"type" : "column",
+												// "topRadius":1,
+												"columnWidth" : 0.7,
+												"valueField" : "value"
+
+											} ],
+										//	"depth3D" : 10,
+										//	"angle" : 15,
+
+											"chartScrollbar" : {
+												"graph" : "New Hires1",
+												"oppositeAxis" : true,
+												"offset" : 30,
+												"scrollbarHeight" : 50,
+												"backgroundAlpha" : 0,
+												"selectedBackgroundAlpha" : 0.1,
+												"selectedBackgroundColor" : "#888888",
+												"graphFillAlpha" : 0,
+												"graphLineAlpha" : 0.5,
+												"selectedGraphFillAlpha" : 0,
+												"selectedGraphLineAlpha" : 1,
+
+												"color" : "#AAAAAA"
+											},
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												"labelRotation" : 45,
+												//"stackType": "regular",
+												//"title": "Total HC",
+												//	"gridAlpha":0.5,
+
+												"minimum" : 0,
+												"axisAlpha" : 0.3
+											}, {
+												"id" : "ValueAxis-2",
+												"labelRotation" : 45,
+												//	"stackType": "regular",
+												"title" : "MGMGT",
+												//	"gridAlpha":0.5,
+												"minimum" : 0,
+												"axisAlpha" : 0.3
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											"legend" : {
+
+												"useGraphSettings" : true,
+												"position" : "bottom"
+											},
+											/* "titles": [
+												{
+													"id": "Title-1",
+													"size": 15,
+													"text": "Total Employee Strength"
+												}
+											], */
+											"export" : AmCharts.exportCFG
+
+										});
+
+						totoalEmployeeStrengthChart.dataProvider = jsonData;
+						totoalEmployeeStrengthChart.validateData();
+
+					}
+				});
+
+	}
+				
+				
+				
+	function loadTotoalEmployeeStrengthGraph(region, circle, cluster, branch,
+			role, areaCode, ed, dept, flag) {
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/getTotoalEmployeeStrength.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+
+						AmCharts.exportCFG.fileName = "TotoalEmployeeStrengthChartData";
+
+						AmCharts.exportCFG.position = 'top-left';
+						AmCharts.exportCFG.menu[0].menu.splice(0, 10);
+						AmCharts.exportCFG.menu[0].menu
+								.push({
+									"label" : "Display data",
+									"click" : function() {
+
+									
+								//	AmCharts.exportCFG.click = function() {
+										// get chart object
+										var chart = this.setup.chart;
+
+										// get chart data
+										var data = chart.dataProvider;
+
+										// create a table
+										var holder = document
+												.createElement("div");
+										holder.className = "chart-data";
+										var table = document
+												.createElement("table");
+										holder.appendChild(table);
+										var tr, td;
+
+										// add first row
+										for (var x = 0; x < chart.dataProvider.length; x++) {
+											// first row
+											if (x == 0) {
+												tr = document
+														.createElement("tr");
+												table.appendChild(tr);
+												td = document
+														.createElement("th");
+												td.innerHTML = chart.categoryAxis.title;
+												tr.appendChild(td);
+												for (var i = 0; i < chart.graphs.length; i++) {
+													td = document
+															.createElement('th');
+													td.innerHTML = chart.graphs[i].title;
+													tr.appendChild(td);
+												}
+											}
+
+											// add rows
+											tr = document.createElement("tr");
+											table.appendChild(tr);
+											td = document.createElement("td");
+											td.className = "row-title";
+											td.innerHTML = chart.dataProvider[x][chart.categoryField];
+											tr.appendChild(td);
+											for (var i = 0; i < chart.graphs.length; i++) {
+												td = document
+														.createElement('td');
+												td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+												tr.appendChild(td);
+											}
+										}
+
+										// append to the document
+										chart.containerDiv.appendChild(holder);
+
+										// replace menu
+										 this
+												.createMenu([ {
+													"class" : "export-main export-close",
+													label : "Done",
+													click : function() {
+														this
+																.createMenu(this.config.menu);
+														chart.containerDiv
+																.removeChild(holder);
+													}
+												} ]); 
+									}
+								});
+						//  AmCharts.exportCFG.menuLeft='0px';
+					//	AmCharts.exportCFG.menu[0].menu.splice(5, 10);
+					
+						
+						var totoalEmployeeStrengthChart = AmCharts
+								.makeChart(
+										"totoalEmployeeStrengthDiv",
+										{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+										/* 	"colors" : [ "#0488fc"
+											"#B0DE09",
+											"#FCD202",
+											"#FF6600",
+											"#0D8ECF",
+											"#2A0CD0",
+											"#CD0D74",
+											"#CC0000",
+											"#00CC00",
+											"#0000CC",
+											"#DDDDDD",
+											"#999999",
+											"#333333",
+											"#990000" 
+											], */
+
+											 //"colors" : [ "#00b359","#ffa31a","#0080ff" ],
+											// "colors" : [ "#2d2de2","#FBE405","#E11010" ],
+											
+											
+											 "colors" : [ "#bdbdbd", "#43d5f4", "#ffa31a" ],
+										//	"colors" : [ "#f8bd19","#43d5f4","#4274e0","#45CA6C","#e0425f" ],
+											
+											 
+											"startDuration" : 1,
+											"categoryAxis" : {
+												"gridPosition" : "start",
+												"gridAlpha" : 0,
+												"axisAlpha" : 0,
+												"labelRotation" : 40,
+												"title":"Month"
+											//	"title" : "MGMT Type"
+											},
+											"trendLines" : [],
+											"graphs" : [
+{
+	"balloonText" : "[[title]]<br /><b style='font-size: 130%'>[[percentage]]</b>",
+	"fillAlphas" : 1,
+	"id" : "Exits",
+	
+	"type" : "column",
+	"labelText" : "[[percentage]]",
+	 "labelPosition":"top",
+	//"topRadius" : 1,
+	"title" : "2015-16",
+	"columnWidth" : 0.6,
+	"valueField" : "percentage"
+
+} ,
+														{
+															"balloonText" : "[[title]]<br /><b style='font-size: 130%'>[[value]] </b> ",
+															"fillAlphas" : 1,
+															"labelText" : "[[value]]",
+															 "labelPosition":"top",
+															"id" : "New Hires",
+															"title" : "2016-17",
+															"type" : "column",
+															"newStack" : true,
+														//	"topRadius" : 1,
+															"columnWidth" : 0.6,
+															"valueField" : "value"
+
+														}
+														],
+										//	"depth3D" : 10,
+										//	"angle" : 15,
+
+											"chartScrollbar" : {
+												"graph" : "New Hires1",
+												"oppositeAxis" : true,
+												"offset" : 30,
+												"scrollbarHeight" : 50,
+												"backgroundAlpha" : 0,
+												"selectedBackgroundAlpha" : 0.1,
+												"selectedBackgroundColor" : "#888888",
+												"graphFillAlpha" : 0,
+												"graphLineAlpha" : 0.5,
+												"selectedGraphFillAlpha" : 0,
+												"selectedGraphLineAlpha" : 1,
+
+												"color" : "#AAAAAA"
+											},
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												"labelRotation" : 45,
+												"stackType": "regular",
+												//"title": "Total HC",
+												//	"gridAlpha":0.5,
+
+												"minimum" : 0,
+												"axisAlpha" : 0.3
+											}, {
+												"id" : "ValueAxis-2",
+												"labelRotation" : 45,
+												//	"stackType": "regular",
+												"title" : "MGMGT",
+												//	"gridAlpha":0.5,
+												"minimum" : 0,
+												"axisAlpha" : 0.3
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											"legend" : {
+
+												"useGraphSettings" : true,
+												"position" : "bottom"
+											},
+											/* "titles": [
+												{
+													"id": "Title-1",
+													"size": 15,
+													"text": "Total Employee Strength"
+												}
+											], */
+											"export" : AmCharts.exportCFG
+
+										});
+
+						totoalEmployeeStrengthChart.dataProvider = jsonData;
+						totoalEmployeeStrengthChart.validateData();
+
+					}
+				});
+
+	}
+
+	function loadNewHiresAndExitsGraph(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/newhierAndExit.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+
+						//debugger;
+						AmCharts.exportCFG.fileName = "NewHiresAndExitsChartData";
+						AmCharts.exportCFG.menu[0].menu.splice(0, 10);
+						AmCharts.exportCFG.menu[0].menu
+								.push({
+									"label" : "Display data",
+									"click" : function() {
+
+										// get chart object
+										var chart = this.setup.chart;
+
+										// get chart data
+										var data = chart.dataProvider;
+
+										// create a table
+										var holder = document
+												.createElement("div");
+										holder.className = "chart-data";
+										var table = document
+												.createElement("table");
+										holder.appendChild(table);
+										var tr, td;
+
+										// add first row
+										for (var x = 0; x < chart.dataProvider.length; x++) {
+											// first row
+											if (x == 0) {
+												tr = document
+														.createElement("tr");
+												table.appendChild(tr);
+												td = document
+														.createElement("th");
+												td.innerHTML = chart.categoryAxis.title;
+												tr.appendChild(td);
+												for (var i = 0; i < chart.graphs.length; i++) {
+													td = document
+															.createElement('th');
+													td.innerHTML = chart.graphs[i].title;
+													tr.appendChild(td);
+												}
+											}
+
+											// add rows
+											tr = document.createElement("tr");
+											table.appendChild(tr);
+											td = document.createElement("td");
+											td.className = "row-title";
+											td.innerHTML = chart.dataProvider[x][chart.categoryField];
+											tr.appendChild(td);
+											for (var i = 0; i < chart.graphs.length; i++) {
+												td = document
+														.createElement('td');
+												td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+												tr.appendChild(td);
+											}
+										}
+
+										// append to the document
+										chart.containerDiv.appendChild(holder);
+
+										// replace menu
+										this
+												.createMenu([ {
+													"class" : "export-main export-close",
+													label : "Done",
+													click : function() {
+														this
+																.createMenu(this.config.menu);
+														chart.containerDiv
+																.removeChild(holder);
+													}
+												} ]);
+									}
+								});
+
+						AmCharts.exportCFG.position = 'top-left';
+					//	AmCharts.exportCFG.menu[0].menu.splice(5, 10);
+						var newHiresAndExitsChart = AmCharts
+								.makeChart(
+										"newHiresAndExitsDiv",
+										{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+
+										//	 "colors" : ["#00b359", "#ff751a" ,"#ffa31a","#0080ff"],
+										// "colors" : [ "#2d2de2","#FBE405","#E11010" ],
+										
+										//"colors" : [ "#e0c342","#4274e0","#45CA6C","#e0425f" ],
+										
+											"colors" : [ "#f8bd19","#008ee4","#45CA6C","#e0425f" ],
+											
+											
+											"startDuration" : 1,
+											"categoryAxis" : {
+												//"gridPosition": "start",
+												"labelRotation" : 40,
+												"title":"Month"
+										//		"title" : "New Hires And Exits"
+											},
+											"trendLines" : [],
+											"graphs" : [
+											            
+{
+	"balloonText" : "[[title]]<br /><b style='font-size: 130%'>[[percentage]]</b>",
+	"fillAlphas" : 1,
+	"id" : "Exits",
+	
+	"type" : "column",
+	"labelText" : "[[percentage]]",
+	 "labelPosition":"top",
+	//"topRadius" : 1,
+	"title" : "2015-16",
+	"columnWidth" : 0.6,
+	"valueField" : "percentage"
+
+},
+													{
+														"balloonText" : "[[title]]<br /><b style='font-size: 130%'>[[value]] </b> ",
+														"fillAlphas" : 1,
+														"labelText" : "[[value]]",
+														 "labelPosition":"top",
+														"id" : "New Hires",
+														"title" : "2016-17",
+														"type" : "column",
+														"newStack" : true,
+													//	"topRadius" : 1,
+														"columnWidth" : 0.6,
+														"valueField" : "value"
+
+													}
+													/* {
+														"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[percentage]] </b> ",
+														"fillAlphas": 1,
+														"labelText":"[[percentage]]",
+														"id": "New Hires",
+														"title": "Exits",
+														"type": "column",
+														"newStack": true,
+													"topRadius":1,
+													"columnWidth":0.7,
+														"valueField": "percentage"
+													
+													} */
+													 ],
+										//	"depth3D" : 10,
+										//	"angle" : 0,
+
+											"chartScrollbar" : {
+												"graph" : "New Hires1",
+												"oppositeAxis" : true,
+												"offset" : 30,
+												"scrollbarHeight" : 50,
+												"backgroundAlpha" : 0,
+												"selectedBackgroundAlpha" : 0.1,
+												"selectedBackgroundColor" : "#888888",
+												"graphFillAlpha" : 0,
+												"graphLineAlpha" : 0.5,
+												"selectedGraphFillAlpha" : 0,
+												"selectedGraphLineAlpha" : 1,
+
+												"color" : "#AAAAAA"
+											},
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												"labelRotation" : 45,
+												"stackType" : "regular",
+											//	"title" : "No of Employees"
+											}, {
+												"id" : "ValueAxis-2",
+												//"stackType": "regular",
+												"title" : "New Hires And Exits"
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											"legend" : {
+
+												"useGraphSettings" : true,
+												"position" : "bottom"
+											},
+											/* "titles": [
+												{
+													"id": "Title-1",
+													"size": 15,
+													"text": "New Hires & Exits "
+												}
+											], */
+											"export" : AmCharts.exportCFG
+										});
+
+						newHiresAndExitsChart.dataProvider = jsonData;
+						newHiresAndExitsChart.validateData();
+
+					}
+				});
+	}
+
+	function loadAvgAgeGraph(region, circle, cluster, branch, role, areaCode,
+			ed, dept, flag) {
+		var chartAgewiseData;
+		$.ajax({
+			url : "snapshot/averageAge.json",
+			cache : false,
+			format : "json",
+			data : {
+				region : region,
+				circle : circle,
+				cluster : cluster,
+				branch : branch,
+				role : role,
+				areaCode : areaCode,
+				ed : ed,
+				dept : dept,
+				flag : flag
+			},
+			success : function(jsonData) {
+				/*   AmCharts.exportCFG.fileName = "TotoalEmployeeStrengthChartData";
+				  AmCharts.exportCFG.menu[0].menu.push({
+				    "label": "Display data",
+				    "click": function() {
+
+				      // get chart object
+				      var chart = this.setup.chart;
+
+				      // get chart data
+				      var data = chart.dataProvider;
+
+				      // create a table
+				      var holder = document.createElement("div");
+				      holder.className = "chart-data";
+				      var table = document.createElement("table");
+				      holder.appendChild(table);
+				      var tr, td;
+
+				      // add first row
+				      for (var x = 0; x < chart.dataProvider.length; x++) {
+				        // first row
+				        if (x == 0) {
+				          tr = document.createElement("tr");
+				          table.appendChild(tr);
+				          td = document.createElement("th");
+				          td.innerHTML = chart.categoryAxis.title;
+				          tr.appendChild(td);
+				          for (var i = 0; i < chart.graphs.length; i++) {
+				            td = document.createElement('th');
+				            td.innerHTML = chart.graphs[i].title;
+				            tr.appendChild(td);
+				          }
+				        }
+
+				        // add rows
+				        tr = document.createElement("tr");
+				        table.appendChild(tr);
+				        td = document.createElement("td");
+				        td.className = "row-title";
+				        td.innerHTML = chart.dataProvider[x][chart.categoryField];
+				        tr.appendChild(td);
+				        for (var i = 0; i < chart.graphs.length; i++) {
+				          td = document.createElement('td');
+				          td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+				          tr.appendChild(td);
+				        }
+				      }
+
+				      // append to the document
+				      chart.containerDiv.appendChild(holder);
+
+				      // replace menu
+				      this.createMenu([{
+				        "class": "export-main export-close",
+				        label: "Done",
+				        click: function() {
+				          this.createMenu(this.config.menu);
+				          chart.containerDiv.removeChild(holder);
+				        }
+				      }]);
+				    }
+				  }); */
+
+				var avgAgeChart = AmCharts.makeChart("avgAgeDiv", {
+					"theme" : "light",
+					"type" : "gauge",
+					/* "colors" : [ "#B0DE09", "#FCD202", "#FF6600", "#0D8ECF",
+							"#2A0CD0", "#CD0D74", "#CC0000", "#00CC00",
+							"#0000CC", "#DDDDDD", "#999999", "#333333",
+							"#990000" ], */
+							
+							"colors" : [ "#e0c342","#4274e0","#45CA6C","#e0425f" ],
+							
+					"axes" : [ {
+						"topTextFontSize" : 20,
+						"topTextYOffset" : 70,
+						"axisColor" : "#31d6ea",
+						"topText" : jsonData[0].key + "-yrs",
+						"axisThickness" : 1,
+						"endValue" : 60,
+						"gridInside" : true,
+						"inside" : true,
+						"radius" : "50%",
+						// "valueInterval": 10,
+						"tickColor" : "#67b7dc",
+						"startAngle" : -90,
+						"endAngle" : 90,
+						//"unit": "%",
+						"bandOutlineAlpha" : 0,
+						"bands" : [ {
+						//	"color" : "#84e184",
+							//"color" : "#e0c342",
+							"color" : "#f8bd19",
+							"endValue" : 25,
+							"innerRadius" : "105%",
+							"balloonText" : "<25 yrs",
+							"radius" : "170%",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 0
+						}, {
+						//	"color" : "#46d246",
+						//"color" : "#4274e0",
+						
+						"color" : "#e44a00",
+							"endValue" : 30,
+							"innerRadius" : "105%",
+							"balloonText" : "25 - 30 yrs",
+							"radius" : "170%",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 25
+						}, {
+						//	"color" : "#2db92d",
+						//"color" : "#45CA6C",
+						"color" : "#f99c2d",
+							"endValue" : 40,
+							"innerRadius" : "105%",
+							"balloonText" : "31 - 40 yrs",
+							"radius" : "170%",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 30
+						}, {
+						//	"color" : "#239023",
+					//	"color" : "#e0425f",
+					"color" : "#008ee4",
+							"endValue" : 50,
+							"innerRadius" : "105%",
+							"radius" : "170%",
+							"balloonText" : "41 - 50 yrs",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 40
+						}, {
+					//		"color" : "#145214",
+				//	"color" : "#4274e0",
+				"color" : "#43d5f4",
+							"endValue" : 60,
+							"innerRadius" : "105%",
+							"radius" : "170%",
+							"balloonText" : ">50 yrs",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 50
+						} ]
+					} ],
+					"arrows" : [ {
+						"alpha" : 1,
+						"innerRadius" : "35%",
+						"nailRadius" : 0,
+						"radius" : "170%",
+						"value" : jsonData[0].key
+
+					} ]/* , "titles": [
+														{
+															"id": "Title-1",
+															"size": 15,
+															"text": "Average Age"
+														}
+													] */
+					,
+					/*  "export": {
+						    "enabled": true,
+						    "position" : "top-left"
+						  } */
+				});
+
+				/*  totoalEmployeeStrengthChart.dataProvider=jsonData; */
+				avgAgeChart.validateData();
+
+			}
+		});
+
+	}
+
+	function loadAvgTenureGraph(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		var chartAgewiseData;
+		$.ajax({
+			url : "snapshot/averageTenure.json",
+			cache : false,
+			format : "json",
+			data : {
+				region : region,
+				circle : circle,
+				cluster : cluster,
+				branch : branch,
+				role : role,
+				areaCode : areaCode,
+				ed : ed,
+				dept : dept,
+				flag : flag
+			},
+			success : function(jsonData) {
+				/* AmCharts.exportCFG.fileName = "NewHiresAndExitsChartData";
+				  AmCharts.exportCFG.menu[0].menu.push({
+				    "label": "Display data",
+				    "click": function() {
+				      // get chart object
+				      var chart = this.setup.chart;
+
+				      // get chart data
+				      var data = chart.dataProvider;
+
+				      // create a table
+				      var holder = document.createElement("div");
+				      holder.className = "chart-data";
+				      var table = document.createElement("table");
+				      holder.appendChild(table);
+				      var tr, td;
+
+				      // add first row
+				      for (var x = 0; x < chart.dataProvider.length; x++) {
+				        // first row
+				        if (x == 0) {
+				          tr = document.createElement("tr");
+				          table.appendChild(tr);
+				          td = document.createElement("th");
+				          td.innerHTML = chart.categoryAxis.title;
+				          tr.appendChild(td);
+				          for (var i = 0; i < chart.graphs.length; i++) {
+				            td = document.createElement('th');
+				            td.innerHTML = chart.graphs[i].title;
+				            tr.appendChild(td);
+				          }
+				        }
+
+				        // add rows
+				        tr = document.createElement("tr");
+				        table.appendChild(tr);
+				        td = document.createElement("td");
+				        td.className = "row-title";
+				        td.innerHTML = chart.dataProvider[x][chart.categoryField];
+				        tr.appendChild(td);
+				        for (var i = 0; i < chart.graphs.length; i++) {
+				          td = document.createElement('td');
+				          td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+				          tr.appendChild(td);
+				        }
+				      }
+
+				      // append to the document
+				      chart.containerDiv.appendChild(holder);
+
+				      // replace menu
+				      this.createMenu([{
+				        "class": "export-main export-close",
+				        label: "Done",
+				        click: function() {
+				          this.createMenu(this.config.menu);
+				          chart.containerDiv.removeChild(holder);
+				        }
+				      }]);
+				    }
+				  }); */
+
+				var avgTenureChart = AmCharts.makeChart("avgTenureDiv", {
+					"theme" : "light",
+					"type" : "gauge",
+					/* "colors" : [ "#B0DE09", "#FCD202", "#FF6600", "#0D8ECF",
+							"#2A0CD0", "#CD0D74", "#CC0000", "#00CC00",
+							"#0000CC", "#DDDDDD", "#999999", "#333333",
+							"#990000" ], */
+							
+							"colors" : [ "#e0c342","#4274e0","#45CA6C","#e0425f" ],
+							
+					"axes" : [ {
+						"topTextFontSize" : 20,
+						"topTextYOffset" : 70,
+						"axisColor" : "#FF6600",
+						"axisThickness" : 1,
+						"topText" : jsonData[0].key + "-yrs",
+						"endValue" : 60,
+						"gridInside" : true,
+						"labelsEnabled" : true,
+						"showFirstLabel" : true,
+						// "bottomText": jsonData[0].key+ " km/h",
+						"inside" : true,
+						"radius" : "50%",
+						"valueInterval" : 10,
+						"tickColor" : "#0D8ECF",
+						"startAngle" : -90,
+						"endAngle" : 90,
+						//  "unit": "%",
+						"bandOutlineAlpha" : 0,
+						"bands" : [ {
+							"color" : "#ff6600",
+						//"color" : "#e0c342",
+							"endValue" : 10,
+							"balloonText" : "10",
+							"labelText" : "tessegtfsdfsdf",
+							"text" : "Free label",
+							"innerRadius" : "105%",
+							"radius" : "170%",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 0
+						}, {
+							"color" : "#cc4748",
+						//"color" : "#4274e0",
+							"endValue" : 35,
+							"innerRadius" : "105%",
+							"balloonText" : "35",
+							"radius" : "170%",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 10
+						}, {
+							"color" : "#cd82ad",
+						//"color" : "#45CA6C",
+							"endValue" : 60,
+							"innerRadius" : "105%",
+							"radius" : "170%",
+							"balloonText" : "55",
+							"gradientRatio" : [ 0.5, 0, -0.5 ],
+							"startValue" : 35
+						} ]
+					} ],
+					"arrows" : [ {
+						"alpha" : 1,
+						"innerRadius" : "35%",
+						"nailRadius" : 0,
+						"radius" : "170%",
+						"value" : jsonData[0].key
+
+					} ]/* ,
+										  "titles": [
+														{
+															"id": "Title-1",
+															"size": 15,
+															"text": "Average Tenure"
+														}
+													] */
+													,
+													/*  "export": {
+														    "enabled": true,
+														    "position" : "top-left"
+														  } */
+				});
+
+				// newHiresAndExitsChart.axes[0].bands[1].setEndValue(jsonData);
+
+				/*  avgTenureChart.dataProvider=jsonData;*/
+				avgTenureChart.validateData();
+
+			}
+		});
+	}
+
+	function loadGenderRatioGraph123(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		//alert();
+		//debugger;
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/genderRatio.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+						var mVal;
+						var mPercent;
+
+						var fVal;
+						var fPercent;
+
+						if (jsonData[0].key == "M") {
+							mVal = jsonData[0].value;
+							mPercent = jsonData[0].percentage;
+						} else if (jsonData[0].key == "F") {
+							fVal = jsonData[0].value;
+							fPercent = jsonData[0].percentage;
+						}
+
+						if (jsonData[1].key == "M") {
+							mVal = jsonData[1].value;
+							mPercent = jsonData[1].percentage;
+						} else if (jsonData[1].key == "F") {
+							fVal = jsonData[1].value;
+							fPercent = jsonData[1].percentage;
+						}
+
+						/* AmCharts.exportCFG.fileName = "GenderRatioChartData";
+						AmCharts.exportCFG.menu[0].menu.push({
+						  "label": "Display data",
+						  "click": function() {
+
+						    // get chart object
+						    var chart = this.setup.chart;
+
+						    // get chart data
+						    var data = chart.dataProvider;
+
+						    // create a table
+						    var holder = document.createElement("div");
+						    holder.className = "chart-data";
+						    var table = document.createElement("table");
+						    holder.appendChild(table);
+						    var tr, td;
+
+						    // add first row
+						    for (var x = 0; x < chart.dataProvider.length; x++) {
+						      // first row
+						      if (x == 0) {
+						        tr = document.createElement("tr");
+						        table.appendChild(tr);
+						        td = document.createElement("th");
+						        td.innerHTML = "Dept";
+						        tr.appendChild(td);
+						        for (var i = 0; i < chart.graphs.length; i++) {
+						          td = document.createElement('th');
+						          td.innerHTML = "Value";
+						          tr.appendChild(td);
+						        }
+						      }
+
+						      // add rows
+						      tr = document.createElement("tr");
+						      table.appendChild(tr);
+						      td = document.createElement("td");
+						      td.className = "row-title";
+						      td.innerHTML = chart.dataProvider[x][chart.categoryField];
+						      tr.appendChild(td);
+						      for (var i = 0; i < chart.graphs.length; i++) {
+						        td = document.createElement('td');
+						        td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+						        tr.appendChild(td);
+						      }
+						    }
+
+						    // append to the document
+						    chart.containerDiv.appendChild(holder);
+
+						    // replace menu
+						    this.createMenu([{
+						      "class": "export-main export-close",
+						      label: "Done",
+						      click: function() {
+						        this.createMenu(this.config.menu);
+						        chart.containerDiv.removeChild(holder);
+						      }
+						    }]);
+						  }
+						}); */
+
+						var genderRatioChart = AmCharts
+								.makeChart(
+										"genderRatioDiv",
+										/* {
+										"type": "pie",
+										"theme": "light",
+										"colors": [
+										"#04c4fc",
+										"#B0DE09"
+
+											
+										
+											
+										],
+										
+										"titles": [ {
+										"text": "Gender Ratio - Overall",
+										"size": 16
+										} ],
+										
+										"valueField": "value",
+										"titleField": "key",
+										"startEffect": "elastic",
+										"startDuration": 2,
+										"labelRadius": 15,
+										"innerRadius": "50%",
+										"depth3D": 10,
+										"balloonText": "[[key]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+										"angle": 15,
+										"export": {
+										"enabled": true
+										}
+										} */
+
+										{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+
+											"startDuration" : 1,
+											"categoryAxis" : {
+												//"gridPosition": "start",
+												//"labelRotation": 40,
+												"title" : "Gender"
+											},
+											"trendLines" : [],
+
+											"dataProvider" : [
+													{
+														"key" : "Male",
+														"value" : mVal,
+														"percentage" : mPercent,
+														"color" : "#B0DE09",
+														"bullet" : "resources/amchart/male_trans.png"
+													},
+													{
+														"key" : "Female",
+														"value" : fVal,
+														"percentage" : fPercent,
+														"color" : "#FCD202",
+														"bullet" : "resources/amchart/female_trans.png"
+													} ],
+											"graphs" : [ {
+												"balloonText" : "[[key]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percentage]]%)</span>",
+												"fillAlphas" : 1,
+												"labelText" : "[[value]] ([[percentage]]%)",
+												"id" : "TenureWiseDistribution",
+												"topRadius" : 1,
+												"bulletOffset" : 0,
+												"bulletSize" : 50,
+												//   "cornerRadiusTop": 8,
+												"customBulletField" : "bullet",
+												"colorField" : "color",
+												//	"title": "No of Employee",  //Commented by SP -26-10-2016
+												"type" : "column",
+												// "topRadius":1,
+												"columnWidth" : 0.7,
+												"valueField" : "value"
+
+											} ],
+
+											"depth3D" : 10,
+											"angle" : 15,
+
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												//"labelRotation": 45,
+												"stackType" : "regular",
+												"title" : "Ratio"
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											/**legend commented by SP on 26-10-2016***/
+											/* "legend": {  
+												
+												"useGraphSettings": true,
+												 "position": "bottom"
+											}, */
+											/* "titles": [
+												{
+													"id": "Title-1",
+													"size": 15,
+													"text": "Gender Ratio - Overall"
+												}
+											], */
+											"export" : AmCharts.exportCFG
+
+										}
+
+								);
+						/*  genderRatioChart.dataProvider=jsonData;*/
+						genderRatioChart.validateData();
+
+					}
+				});
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function loadGenderRatioGraph(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		//alert();
+		//debugger;
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/genderRatio.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+						var mVal;
+						var mPercent;
+
+						var fVal;
+						var fPercent;
+
+						if (jsonData[0].key == "M") {
+							mVal = jsonData[0].value;
+							mPercent = jsonData[0].percentage;
+						} else if (jsonData[0].key == "F") {
+							fVal = jsonData[0].value;
+							fPercent = jsonData[0].percentage;
+						}
+
+						if (jsonData[1].key == "M") {
+							mVal = jsonData[1].value;
+							mPercent = jsonData[1].percentage;
+						} else if (jsonData[1].key == "F") {
+							fVal = jsonData[1].value;
+							fPercent = jsonData[1].percentage;
+						}
+
+						
+						AmCharts.exportCFG.fileName = "NewHiresAndExitsChartData";
+						AmCharts.exportCFG.menu[0].menu.splice(0, 10);
+						AmCharts.exportCFG.menu[0].menu
+								.push({
+									"label" : "Display data",
+									"click" : function() {
+
+										// get chart object
+										var chart = this.setup.chart;
+
+										// get chart data
+										var data = chart.dataProvider;
+
+										// create a table
+										var holder = document
+												.createElement("div");
+										holder.className = "chart-data";
+										var table = document
+												.createElement("table");
+										holder.appendChild(table);
+										var tr, td;
+
+										// add first row
+										for (var x = 0; x < chart.dataProvider.length; x++) {
+											// first row
+											if (x == 0) {
+												tr = document
+														.createElement("tr");
+												table.appendChild(tr);
+												td = document
+														.createElement("th");
+												td.innerHTML = chart.categoryAxis.title;
+												tr.appendChild(td);
+												for (var i = 0; i < chart.graphs.length; i++) {
+													td = document
+															.createElement('th');
+													td.innerHTML = chart.graphs[i].title;
+													tr.appendChild(td);
+												}
+											}
+
+											// add rows
+											tr = document.createElement("tr");
+											table.appendChild(tr);
+											td = document.createElement("td");
+											td.className = "row-title";
+											td.innerHTML = chart.dataProvider[x][chart.categoryField];
+											tr.appendChild(td);
+											for (var i = 0; i < chart.graphs.length; i++) {
+												td = document
+														.createElement('td');
+												td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+												tr.appendChild(td);
+											}
+										}
+
+										// append to the document
+										chart.containerDiv.appendChild(holder);
+
+										// replace menu
+										this
+												.createMenu([ {
+													"class" : "export-main export-close",
+													label : "Done",
+													click : function() {
+														this
+																.createMenu(this.config.menu);
+														chart.containerDiv
+																.removeChild(holder);
+													}
+												} ]);
+									}
+								});
+
+						AmCharts.exportCFG.position = 'top-left';
+					//	AmCharts.exportCFG.menu[0].menu.splice(5, 10);
+						
+						/* AmCharts.exportCFG.fileName = "GenderRatioChartData";
+						AmCharts.exportCFG.menu[0].menu.push({
+						  "label": "Display data",
+						  "click": function() {
+
+						    // get chart object
+						    var chart = this.setup.chart;
+
+						    // get chart data
+						    var data = chart.dataProvider;
+
+						    // create a table
+						    var holder = document.createElement("div");
+						    holder.className = "chart-data";
+						    var table = document.createElement("table");
+						    holder.appendChild(table);
+						    var tr, td;
+
+						    // add first row
+						    for (var x = 0; x < chart.dataProvider.length; x++) {
+						      // first row
+						      if (x == 0) {
+						        tr = document.createElement("tr");
+						        table.appendChild(tr);
+						        td = document.createElement("th");
+						        td.innerHTML = "Dept";
+						        tr.appendChild(td);
+						        for (var i = 0; i < chart.graphs.length; i++) {
+						          td = document.createElement('th');
+						          td.innerHTML = "Value";
+						          tr.appendChild(td);
+						        }
+						      }
+
+						      // add rows
+						      tr = document.createElement("tr");
+						      table.appendChild(tr);
+						      td = document.createElement("td");
+						      td.className = "row-title";
+						      td.innerHTML = chart.dataProvider[x][chart.categoryField];
+						      tr.appendChild(td);
+						      for (var i = 0; i < chart.graphs.length; i++) {
+						        td = document.createElement('td');
+						        td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+						        tr.appendChild(td);
+						      }
+						    }
+
+						    // append to the document
+						    chart.containerDiv.appendChild(holder);
+
+						    // replace menu
+						    this.createMenu([{
+						      "class": "export-main export-close",
+						      label: "Done",
+						      click: function() {
+						        this.createMenu(this.config.menu);
+						        chart.containerDiv.removeChild(holder);
+						      }
+						    }]);
+						  }
+						}); */
+
+						var genderRatioChart = AmCharts
+								.makeChart(
+										"genderRatioDiv",
+
+										
+										
+										
+									/* 	{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+
+											"startDuration" : 1,
+											"categoryAxis" : {
+												//"gridPosition": "start",
+												//"labelRotation": 40,
+												"title" : "Gender"
+											},
+											"trendLines" : [],
+
+											"dataProvider" : [
+													{
+														"key" : "Male",
+														"value" : mVal,
+														"percentage" : mPercent,
+														"color" : "#B0DE09",
+														"bullet" : "resources/amchart/male_trans.png"
+													},
+													{
+														"key" : "Female",
+														"value" : fVal,
+														"percentage" : fPercent,
+														"color" : "#FCD202",
+														"bullet" : "resources/amchart/female_trans.png"
+													} ],
+											"graphs" : [ {
+												"balloonText" : "[[key]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percentage]]%)</span>",
+												"fillAlphas" : 1,
+												"labelText" : "[[value]] ([[percentage]]%)",
+												"id" : "TenureWiseDistribution",
+												"topRadius" : 1,
+												"bulletOffset" : 0,
+												"bulletSize" : 50,
+												//   "cornerRadiusTop": 8,
+												"customBulletField" : "bullet",
+												"colorField" : "color",
+												//	"title": "No of Employee",  //Commented by SP -26-10-2016
+												"type" : "column",
+												// "topRadius":1,
+												"columnWidth" : 0.7,
+												"valueField" : "value"
+
+											} ],
+
+											"depth3D" : 10,
+											"angle" : 15,
+
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												//"labelRotation": 45,
+												"stackType" : "regular",
+												"title" : "Ratio"
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											"export" : AmCharts.exportCFG
+
+										} */
+										
+										
+										
+										
+										
+	
+										
+										{
+											 //"colors" : [ "#00b359",  "#ffa31a","#0080ff" ],
+											// "colors" : [ "#e0c342","#4274e0","#45CA6C","#e0425f" ],
+											"colors" : [ "#9d60b8","#f8bd19","#45CA6C","#e0425f" ],
+											
+											
+											"type": "pie",
+											  "theme": "none",
+												"categoryField" : "key",
+											  "categoryAxis" : {
+													"title" : "Gender"
+												},
+												
+												"graphs" : [ {
+												"title":"Value",
+													"valueField" : "value"
+
+												},
+												
+												{
+													"title":"Percentage %",
+														"valueField" : "percentage"
+
+													}],
+												
+											  "dataProvider": [ {
+											    "key": "M",
+											    "value": mVal,
+											    "percentage":mPercent
+											  }, {
+											    "key": "F",
+											    "value": fVal,
+											    "percentage":fPercent
+											  } ],
+											  "valueField": "value",
+											  "titleField": "key",
+											   "balloon":{
+											   "fixedPosition":true
+											  },
+											  "depth3D": 15,
+											  "angle": 30,
+											  "export" : AmCharts.exportCFG,
+											  
+											//"percentPrecision":0,
+												//"precision":0,
+												labelFunction: function(item) {
+												    // format value
+												    var value = Math.round( item.value );
+
+												    // format percent
+												    var percent = Math.round( item.percents );
+
+												    // format and return the label content
+												    return item.title + ":" + percent + "%";
+												  },
+												//  "labelText": "[[title]]: [[value]] ([[percents]]%)",
+												  "precision": 0,
+												  //"thousandsSeparator": ",",
+												  //"decimalSeparator": ".",
+													  "balloonText" :"[[title]]: [[value]] ([[percents]]%)",
+											}
+										
+										
+
+								);
+						/*  genderRatioChart.dataProvider=jsonData;*/
+						genderRatioChart.validateData();
+
+					}
+				});
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function loadGenderRatioSalesGraph12345(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		//alert();
+		//debugger;
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/genderRatioSales.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+						var mVal;
+						var mPercent;
+
+						var fVal;
+						var fPercent;
+
+						if (jsonData[0].key == "M") {
+							mVal = jsonData[0].value;
+							mPercent = jsonData[0].percentage;
+						} else if (jsonData[0].key == "F") {
+							fVal = jsonData[0].value;
+							fPercent = jsonData[0].percentage;
+						}
+
+						if (jsonData[1].key == "M") {
+							mVal = jsonData[1].value;
+							mPercent = jsonData[1].percentage;
+						} else if (jsonData[1].key == "F") {
+							fVal = jsonData[1].value;
+							fPercent = jsonData[1].percentage;
+						}
+
+						/* AmCharts.exportCFG.fileName = "GenderRatioSalesChartData";
+						AmCharts.exportCFG.menu[0].menu.push({
+						  "label": "Display data",
+						  "click": function() {
+
+						    // get chart object
+						    var chart = this.setup.chart;
+
+						    // get chart data
+						    var data = chart.dataProvider;
+
+						    // create a table
+						    var holder = document.createElement("div");
+						    holder.className = "chart-data";
+						    var table = document.createElement("table");
+						    holder.appendChild(table);
+						    var tr, td;
+
+						    // add first row
+						    for (var x = 0; x < chart.dataProvider.length; x++) {
+						      // first row
+						      if (x == 0) {
+						        tr = document.createElement("tr");
+						        table.appendChild(tr);
+						        td = document.createElement("th");
+						        td.innerHTML = "Dept";
+						        tr.appendChild(td);
+						        for (var i = 0; i < chart.graphs.length; i++) {
+						          td = document.createElement('th');
+						          td.innerHTML = "Value";
+						          tr.appendChild(td);
+						        }
+						      }
+
+						      // add rows
+						      tr = document.createElement("tr");
+						      table.appendChild(tr);
+						      td = document.createElement("td");
+						      td.className = "row-title";
+						      td.innerHTML = chart.dataProvider[x][chart.categoryField];
+						      tr.appendChild(td);
+						      for (var i = 0; i < chart.graphs.length; i++) {
+						        td = document.createElement('td');
+						        td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+						        tr.appendChild(td);
+						      }
+						    }
+
+						    // append to the document
+						    chart.containerDiv.appendChild(holder);
+
+						    // replace menu
+						    this.createMenu([{
+						      "class": "export-main export-close",
+						      label: "Done",
+						      click: function() {
+						        this.createMenu(this.config.menu);
+						        chart.containerDiv.removeChild(holder);
+						      }
+						    }]);
+						  }
+						}); */
+
+						AmCharts.exportCFG.position = 'top-left';
+						var genderRatioSalesChart = AmCharts
+								.makeChart(
+										"genderRatioSalesDiv",
+
+										{
+											"type" : "serial",
+											"panEventsEnabled" : true,
+											"pan" : true,
+											"categoryField" : "key",
+											"colors" : [ "#B0DE09", "#FCD202",
+													"#FF6600", "#0D8ECF",
+													"#2A0CD0", "#CD0D74",
+													"#CC0000", "#00CC00",
+													"#0000CC", "#DDDDDD",
+													"#999999", "#333333",
+													"#990000" ],
+
+											"startDuration" : 1,
+											"categoryAxis" : {
+												//"gridPosition": "start",
+												//"labelRotation": 40,
+												"title" : "Gender"
+											},
+											"trendLines" : [],
+
+											"dataProvider" : [
+													{
+														"key" : "Male",
+														"value" : mVal,
+														"percentage" : jsonData,
+														//"color" : "#2E86C1",
+														"color" : "#2E86C1",
+														"bullet" : "resources/amchart/male_trans.png"
+													},
+													{
+														"key" : "Female",
+														"value" : fVal,
+														"percentage" : fPercent,
+													//	"color" : "#CD6155",
+													"color" : "#9d60b8",
+														"bullet" : "resources/amchart/female_trans.png"
+													} ],
+											"graphs" : [ {
+												"balloonText" : "[[key]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percentage]]%)</span>",
+												"fillAlphas" : 1,
+												"labelText" : "[[value]] ([[percentage]]%)",
+												"id" : "TenureWiseDistribution",
+												"topRadius" : 1,
+												"bulletOffset" : 0,
+												"bulletSize" : 50,
+												//   "cornerRadiusTop": 8,
+												"customBulletField" : "bullet",
+												"colorField" : "color",
+												//Commented by SP-26-10-2016 - title
+												// "title": "No of Employee",  
+												//"title": "Previous FY",
+												"type" : "column",
+												// "topRadius":1,
+												"columnWidth" : 0.7,
+												"valueField" : "value"
+
+											} ],
+
+											"depth3D" : 10,
+											"angle" : 15,
+
+											/*  "chartScrollbar": {
+												 "graph": "New Hires1",
+												 "oppositeAxis": true,
+												 "offset": 30,
+												 "scrollbarHeight": 50,
+												 "backgroundAlpha": 0,
+												 "selectedBackgroundAlpha": 0.1,
+												 "selectedBackgroundColor": "#888888",
+												 "graphFillAlpha": 0,
+												 "graphLineAlpha": 0.5,
+												 "selectedGraphFillAlpha": 0,
+												 "selectedGraphLineAlpha": 1,
+
+												 "color": "#AAAAAA"
+												}, */
+											"chartCursor" : {
+												"pan" : true,
+												"valueLineEnabled" : true,
+												"valueLineBalloonEnabled" : true,
+												"cursorAlpha" : 0,
+												"valueLineAlpha" : 0.2
+											},
+											"guides" : [],
+											"valueAxes" : [ {
+												"id" : "ValueAxis-1",
+												//"labelRotation": 45,
+												"stackType" : "regular",
+												"title" : "Ratio"
+											} ],
+											"allLabels" : [],
+											"balloon" : {},
+											//legend commented by SP - 26-10-2016
+											/* "legend": {
+												
+												"useGraphSettings": true,
+												 "position": "bottom"
+											}, */
+											/* "titles": [
+												{
+													"id": "Title-1",
+													"size": 15,
+													"text": "Gender Ratio - Without Sales Channel"
+												}
+											], */
+											"export" : AmCharts.exportCFG,
+									
+
+										}
+								/* {
+								"type": "serial",
+								"theme": "light",
+								"dataProvider": [{
+								"name": "John",
+								"points": 35654,
+								"color": "#7F8DA9",
+								"bullet": "resources/amchart/male_trans.png"
+								}, {
+								"name": "Damon",
+								"points": 65456,
+								"color": "#FEC514",
+								"bullet": "resources/amchart/female_trans.png"
+								}, {
+								"name": "Patrick",
+								"points": 45724,
+								"color": "#DB4C3C",
+								"bullet": "resources/amchart/male_trans.png"
+								}, {
+								"name": "Mark",
+								"points": 13654,
+								"color": "#DAF0FD",
+								"bullet": "resources/amchart/female_trans.png"
+								}],
+								"valueAxes": [{
+								"maximum": 80000,
+								"minimum": 0,
+								"axisAlpha": 0,
+								"dashLength": 4,
+								"position": "left"
+								}],
+								"startDuration": 1,
+								"graphs": [{
+								"balloonText": "<span style='font-size:13px;'>[[category]]: <b>[[value]]</b></span>",
+								"bulletOffset": 10,
+								"bulletSize":100,
+								"colorField": "color",
+								"cornerRadiusTop": 8,
+								"customBulletField": "bullet",
+								"fillAlphas": 0.8,
+								"lineAlpha": 0,
+								"type": "column",
+								"labelText":"[[value]]",
+								"valueField": "points"
+								}],
+								"marginTop": 0,
+								"marginRight": 0,
+								"marginLeft": 0,
+								"marginBottom": 0,
+								"autoMargins": false,
+								"categoryField": "name",
+								"categoryAxis": {
+								"axisAlpha": 0,
+								"gridAlpha": 0,
+								"inside": true,
+								"tickLength": 0
+								},
+								"export": {
+								"enabled": true
+								}
+								} */
+
+								/* {
+								"type": "pie",
+								"theme": "light",
+								"colors": [
+									"#2E86C1",
+									"#CD6155"
+									
+								
+									
+								],
+								
+								"titles": [ {
+								"text": "Gender Ratio - Without Sales Channel",
+								"size": 16
+								} ],
+								
+								"valueField": "value",
+								"titleField": "key",
+								"startEffect": "elastic",
+								"startDuration": 2,
+								"labelRadius": 15,
+								//  "innerRadius": "50%",
+								"depth3D": 10,
+								"balloonText": "[[key]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+								"angle": 15,
+								"export": {
+								"enabled": true
+								}
+								}  */
+
+								);
+						//	genderRatioSalesChart.dataProvider=jsonData;
+						//	genderRatioSalesChart.validateData();
+
+						
+						 ageWiseDistributionChart.labelText = '[[value]]';
+						 ageWiseDistributionChart.labelPosition = 'inside';
+						
+						
+					}
+				});
+	}
+	
+	
+	
+	
+	
+	
+	function loadGenderRatioSalesGraph(region, circle, cluster, branch, role,
+			areaCode, ed, dept, flag) {
+		//alert();
+		//debugger;
+		var chartAgewiseData;
+		$
+				.ajax({
+					url : "snapshot/genderRatioSales.json",
+					cache : false,
+					format : "json",
+					data : {
+						region : region,
+						circle : circle,
+						cluster : cluster,
+						branch : branch,
+						role : role,
+						areaCode : areaCode,
+						ed : ed,
+						dept : dept,
+						flag : flag
+					},
+					success : function(jsonData) {
+						var mVal;
+						var mPercent;
+
+						var fVal;
+						var fPercent;
+
+						if (jsonData[0].key == "M") {
+							mVal = jsonData[0].value;
+							mPercent = jsonData[0].percentage;
+						} else if (jsonData[0].key == "F") {
+							fVal = jsonData[0].value;
+							fPercent = jsonData[0].percentage;
+						}
+
+						if (jsonData[1].key == "M") {
+							mVal = jsonData[1].value;
+							mPercent = jsonData[1].percentage;
+						} else if (jsonData[1].key == "F") {
+							fVal = jsonData[1].value;
+							fPercent = jsonData[1].percentage;
+						}
+
+						AmCharts.exportCFG.fileName = "NewHiresAndExitsChartData";
+						AmCharts.exportCFG.menu[0].menu.splice(0, 10);
+						AmCharts.exportCFG.menu[0].menu
+								.push({
+									"label" : "Display data",
+									"click" : function() {
+
+										// get chart object
+										var chart = this.setup.chart;
+
+										// get chart data
+										var data = chart.dataProvider;
+
+										// create a table
+										var holder = document
+												.createElement("div");
+										holder.className = "chart-data";
+										var table = document
+												.createElement("table");
+										holder.appendChild(table);
+										var tr, td;
+
+										// add first row
+										for (var x = 0; x < chart.dataProvider.length; x++) {
+											// first row
+											if (x == 0) {
+												tr = document
+														.createElement("tr");
+												table.appendChild(tr);
+												td = document
+														.createElement("th");
+												td.innerHTML = chart.categoryAxis.title;
+												tr.appendChild(td);
+												for (var i = 0; i < chart.graphs.length; i++) {
+													td = document
+															.createElement('th');
+													td.innerHTML = chart.graphs[i].title;
+													tr.appendChild(td);
+												}
+											}
+
+											// add rows
+											tr = document.createElement("tr");
+											table.appendChild(tr);
+											td = document.createElement("td");
+											td.className = "row-title";
+											td.innerHTML = chart.dataProvider[x][chart.categoryField];
+											tr.appendChild(td);
+											for (var i = 0; i < chart.graphs.length; i++) {
+												td = document
+														.createElement('td');
+												td.innerHTML = chart.dataProvider[x][chart.graphs[i].valueField];
+												tr.appendChild(td);
+											}
+										}
+
+										// append to the document
+										chart.containerDiv.appendChild(holder);
+
+										// replace menu
+										this
+												.createMenu([ {
+													"class" : "export-main export-close",
+													label : "Done",
+													click : function() {
+														this
+																.createMenu(this.config.menu);
+														chart.containerDiv
+																.removeChild(holder);
+													}
+												} ]);
+									}
+								});
+
+						AmCharts.exportCFG.position = 'top-left';
+					//	AmCharts.exportCFG.menu[0].menu.splice(5, 10);
+						var genderRatioSalesChart = AmCharts
+								.makeChart(
+										"genderRatioSalesDiv",
+
+										{
+										
+											
+										//	 "colors" : [ "#00b359", "#0080ff", "#ffa31a" ],
+										
+										 "colors" : [ "#43d5f4", "#bdbdbd", "#ffa31a" ],
+										
+
+											 "categoryField" : "key",
+											  "categoryAxis" : {
+													"title" : "Gender"
+												},
+												
+												"graphs" : [ {
+												"title":"Value",
+													"valueField" : "value"
+
+												},
+												
+												{
+													"title":"Percentage %",
+														"valueField" : "percentage"
+
+													}],
+											"type": "pie",
+											  "theme": "none",
+											  "dataProvider": [ {
+											    "key": "M",
+											    "value": mVal
+											  }, {
+											    "key": "F",
+											    "value": fVal
+											  } ],
+											  "valueField": "value",
+											  "titleField": "key",
+											  "depth3D": 15,
+											  "angle": 30,
+											  "innerRadius": "50%",
+											   "balloon":{
+											   "fixedPosition":true
+											  },
+												"export" : AmCharts.exportCFG,
+
+											  
+												//"percentPrecision":0,
+													//"precision":0,
+													labelFunction: function(item) {
+													    // format value
+													    var value = Math.round( item.value );
+
+													    // format percent
+													    var percent = Math.round( item.percents );
+
+													    // format and return the label content
+													    return item.title + ":" + percent + "%";
+													  },
+													//  "labelText": "[[title]]: [[value]] ([[percents]]%)",
+													  "precision": 0,
+													  //"thousandsSeparator": ",",
+													  //"decimalSeparator": ".",
+														  "balloonText" :"[[title]]: [[value]] ([[percents]]%)",
+												
+											
+											}								
+
+								);
+							genderRatioSalesChart.dataProvider=jsonData;
+						//	genderRatioSalesChart.validateData();
+
+					}
+				});
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+		
+		
+		
+	
+<div class="container" >
+
+
+
+<div class="row axis_margin_row" >
+<div class="col-md-12">
+<div class="row">
+<div class="col-md-6"  style="margin-top:5px;" >
+<div class="modal-content">
+<div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center" ><font  color="#ffffff">Total Employee Strength</font></h4>
+        </div>
+<div id="totoalEmployeeStrengthDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+</div>
+
+</div>
+<div class="col-md-6"  style="margin-top:5px;"> 
+ <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center"><font  color="#fff">New Hires</font></h4>
+        </div>
+<div id="newHiresAndExitsDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="col-md-12">
+<div class="row" >
+<div class="col-md-6" style="margin-top:5px;" >
+ <div class="modal-content">
+      <div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center"><font  color="#fff">Average Age</font></h4>
+        </div>
+<div id="avgAgeDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+
+</div>
+</div>
+<div class="col-md-6" style="margin-top:5px;">
+ <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center"><font  color="#fff">Average Tenure</font></h4>
+        </div>
+<div id="avgTenureDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="row" >
+<div class="col-md-6" style="margin-top:5px;" >
+ <div class="modal-content">
+         <div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center"><font  color="#fff">Gender Ratio - Overall</font></h4>
+        </div>
+        <div id="chartwrapper">
+        
+<div id="genderRatioDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+        </div>
+</div>
+
+</div>
+<div class="col-md-6" style="margin-top:5px;">
+<div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center"><font  color="#fff">Gender Ratio - Without Sales Channel</font></h4>
+        </div>
+<div id="genderRatioSalesDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div> 
+ 
+<script src="resources/amchart/funnel.js"></script>		
+<script src="resources/amchart/pie.js"></script>		
+		
+		
+		<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<!-- 		
+		
+	
+<div id="geographicFormSubDiv">
+<div  class="col-sm-12 col-sm-offset-0">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group" style="margin-right:5px;">
+          						<label for="regionId" class="col-sm-2 control-label">Region:</label>
+<img id="myImg" src="resources/images/logos/totoalEmployee.jpg" data-toggle="modal" data-target="#totoalEmployeeStrengthDivModel" alt="Trolltunga, Norway" width="400" height="250">
+				<div class="caption">
+                        <h4>Total Employee Strength</h4>
+                    </div>										
+        </div>
+
+        <div class="btn-group">
+        <label for="circleId" class="col-sm-2 control-label">Circle:</label>
+					<img id="myImg" src="resources/images/logos/newHiresAndExits.jpg" data-toggle="modal" data-target="#newHiresAndExitsDivModel" alt="Trolltunga, Norway" width="300" height="200" style="margin-left:5px;">
+				
+				 <div class="caption" style="margin-left:5px;">
+                        <h4>New Hires & Exits</h4>
+                    </div>							
+        </div>
+    </div>
+</div>
+<div  class="col-sm-12 col-sm-offset-0">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group" style="margin-right:5px;">
+          						<label for="clusterId" class="col-sm-2 control-label">Cluster:</label>
+								<img id="myImg" src="resources/images/logos/avgAge.jpg" data-toggle="modal" data-target="#avgAgeDivModel" alt="Trolltunga, Norway" width="600" height="400" >
+								<div class="caption">
+                        <h6>Average Age</h6>
+                    </div>			
+        </div>
+
+        <div class="btn-group">
+         <label for="branchId" class="col-sm-2 control-label">Branch:</label>
+					<img id="myImg" src="resources/images/logos/avgTenure.jpg" data-toggle="modal" data-target="#avgTenureDivModel" alt="Trolltunga, Norway" width="600" height="400" style="margin-left:5px;">
+					<div class="caption" style="margin-left:5px;">
+                        <h6>Average tenure</h6>
+                    </div>							
+        </div>
+    </div>
+</div>
+
+<div  class="col-sm-12 col-sm-offset-0">
+    <div align="center" class="btn-group btn-group-justified" style="margin-top:5px;">
+        <div class="btn-group" style="margin-right:5px;">
+          						<label for="clusterId" class="col-sm-2 control-label">Cluster:</label>
+								<img id="myImg" src="resources/images/logos/genderRatio.jpg" data-toggle="modal" data-target="#genderRatioDivModel" alt="Trolltunga, Norway" width="600" height="400" >
+								<div class="caption">
+                        <h6>Gender Ratio - Overall</h6>
+                    </div>			
+        </div>
+
+        <div class="btn-group">
+         <label for="branchId" class="col-sm-2 control-label">Branch:</label>
+					<img id="myImg" src="resources/images/logos/genderRatioSales.jpg" data-toggle="modal" data-target="#genderRatioSalesDivModel" alt="Trolltunga, Norway" width="600" height="400" style="margin-left:5px;">
+					<div class="caption" style="margin-left:5px;">
+                        <h6>Gender Ratio - Without Sale Channel</h6>
+                    </div>							
+        </div>
+    </div>
+</div>
+</div>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="modal fade" id="totoalEmployeeStrengthDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal" style="background-color: #ad295f;"><font color="#fff">&times; </font></button>
+          <h4 class="modal-title" align="center" ><font  color="#ffffff">Total Employee Strength</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="totoalEmployeeStrengthDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+	
+	
+	<div class="modal fade" id="newHiresAndExitsDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal"><font  color="#fff">&times;</font></button>
+          <h4 class="modal-title" align="center"><font  color="#fff">New Hires And Exits</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="newHiresAndExitsDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>	
+		
+		
+<div class="modal fade" id="avgAgeDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+      <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal"><font  color="#fff">&times;</font></button>
+          <h4 class="modal-title" align="center"><font  color="#fff">Average Age</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="avgAgeDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>	
+		
+		
+		<div class="modal fade" id="avgTenureDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal"><font  color="#fff">&times;</font></button>
+          <h4 class="modal-title" align="center"><font  color="#fff">Average Tenure</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="avgTenureDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>	
+		
+		
+		
+		<div class="modal fade" id="genderRatioDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+         <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal"><font  color="#fff">&times;</font></button>
+          <h4 class="modal-title" align="center"><font  color="#fff">Gender Ratio - Overall</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="genderRatioDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>	
+		
+		
+		
+		<div class="modal fade" id="genderRatioSalesDivModel" role="dialog">
+    <div class="modal-dialog">
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ad295f;">
+          <button type="button" class="close" data-dismiss="modal"><font  color="#fff">&times;</font></button>
+          <h4 class="modal-title" align="center"><font  color="#fff">Gender Ratio - Without Sales Channel</font></h4>
+        </div>
+        <div class="modal-body">
+
+
+<div class="col-md-12">
+<div class="row" style="margin-top:5px;">
+<div id="genderRatioSalesDiv" style="width: 100%; height: 400px; background-color: #ffffff;" ></div>
+  </div>
+  </div>       
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>	
+  
+   -->
+  
+		
+		
+		
+			
+		
+		
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+ 
+</div>
+</div>
+
+
+<script type="text/javascript">
+ $(document).ready(function() {   
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+</script>
+</body>
+</html>

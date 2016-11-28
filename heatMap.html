@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+
+#chart {
+  max-width: 100%;
+  overflow:auto;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+text {
+  pointer-events: none;
+}
+
+.ctext, .ctext[Attributes Style]{color:#fff !important; fill: white !important; text-shadow: 0px 0px 2px rgba(0,0,0,0.8)}
+
+.ptext {color: #000 !important; fill: #000 !important; font-size: 16px; font-weight: bold;}
+
+
+.grandparent text {
+  font-weight: bold;
+}
+
+rect {
+  fill: none;
+  stroke: #fff;
+}
+
+rect.parent,
+.grandparent rect {
+  stroke-width: 2px;
+  fill:#43d5f4;
+}
+
+rect.parent {
+    pointer-events: none;
+}
+
+.grandparent rect {
+  fill: orange;
+}
+
+.grandparent:hover rect {
+  fill: #ee9700;
+}
+
+.children rect.parent,
+.grandparent rect {
+  cursor: pointer;
+}
+
+.children rect.parent {
+  fill: #bbb;
+  fill-opacity: .3;
+}
+
+.children:hover rect.child {
+  fill: #bbb;
+}
+
+.children:nth-child(0){
+	fill: gray !important;
+}
+.children:nth-child(1) rect{
+	fill: #e44a00 !important;
+}
+
+.children:nth-child(2) rect{
+	fill: #f99c2d !important;
+}
+.children:nth-child(3) rect{
+	fill: #6baa01 !important;
+}
+.children:nth-child(4) rect{
+	fill: #008ee4 !important;
+}
+.children:nth-child(5) rect{
+	fill: #9d60b8 !important;
+}
+.children:nth-child(6) rect{
+	fill: #43d5f4 !important;
+}
+.children:nth-child(7) rect{
+	fill: #bdbdbd !important;
+}
+
+
+/*********** CHILDREN CHILD NODE *************/
+.children:nth-child(1) g:nth-child(1) rect.child{
+	fill: #f1a47f !important;
+}
+.children:nth-child(1) g:nth-child(2) rect.child{
+	fill: #ee9266 !important;
+}
+.children:nth-child(1) g:nth-child(3) rect.child{
+	fill: #ec804c !important;
+}
+.children:nth-child(1) g:nth-child(4) rect.child{
+	fill: #e96e32 !important;
+}
+.children:nth-child(1) g:nth-child(5) rect.child{
+	fill: #e65c19 !important;
+}
+.children:nth-child(1) g:nth-child(6) rect.child{
+	fill: #e44a00 !important;
+}
+.children:nth-child(1) g:nth-child(7) rect.child{
+	fill: #cd4200 !important;
+}
+.children:nth-child(1) g:nth-child(8) rect.child{
+	fill: #b63b00 !important;
+}
+.children:nth-child(1) g:nth-child(9) rect.child{
+	fill: #9f3300 !important;
+}
+.children:nth-child(1) g:nth-child(10) rect.child{
+	fill: #882c00 !important;
+}
+
+
+
+.children:nth-child(2) g:nth-child(1) rect.child{
+	fill: #fde1c0 !important;
+}
+.children:nth-child(2) g:nth-child(2) rect.child{
+	fill: #fccd96 !important;
+}
+.children:nth-child(2) g:nth-child(3) rect.child{
+	fill: #fab96c !important;
+}
+.children:nth-child(2) g:nth-child(4) rect.child{
+	fill: #f9a542 !important;
+}
+.children:nth-child(2) g:nth-child(5) rect.child{
+	fill: #f99c2d !important;
+}
+.children:nth-child(2) g:nth-child(6) rect.child{
+	fill: #e08c28 !important;
+}
+.children:nth-child(2) g:nth-child(7) rect.child{
+	fill: #c77c24 !important;
+}
+.children:nth-child(2) g:nth-child(8) rect.child{
+	fill: #ae6d1f !important;
+}
+.children:nth-child(2) g:nth-child(9) rect.child{
+	fill: #955d1b !important;
+}
+.children:nth-child(2) g:nth-child(10) rect.child{
+	fill: #7c4e16 !important;
+}
+
+
+
+.children:nth-child(3) g:nth-child(1) rect.child{
+	fill: #b5d480 !important;
+}
+.children:nth-child(3) g:nth-child(2) rect.child{
+	fill: #97c34d !important;
+}
+.children:nth-child(3) g:nth-child(3) rect.child{
+	fill: #88bb33 !important;
+}
+.children:nth-child(3) g:nth-child(4) rect.child{
+	fill: #79b21a !important;
+}
+.children:nth-child(3) g:nth-child(5) rect.child{
+	fill: #6baa01 !important;
+}
+.children:nth-child(3) g:nth-child(6) rect.child{
+	fill: #609900 !important;
+}
+.children:nth-child(3) g:nth-child(7) rect.child{
+	fill: #558800 !important;
+}
+.children:nth-child(3) g:nth-child(8) rect.child{
+	fill: #4a7600 !important;
+}
+.children:nth-child(3) g:nth-child(9) rect.child{
+	fill: #406600 !important;
+}
+.children:nth-child(3) g:nth-child(10) rect.child{
+	fill: #355500 !important;
+}
+
+
+
+
+.children:nth-child(4) g:nth-child(1) rect.child{
+	fill: #b2ddf6 !important;
+}
+.children:nth-child(4) g:nth-child(2) rect.child{
+	fill: #7fc6f1 !important;
+}
+.children:nth-child(4) g:nth-child(3) rect.child{
+	fill: #66bbee !important;
+}
+.children:nth-child(4) g:nth-child(4) rect.child{
+	fill: #32a4e9 !important;
+}
+.children:nth-child(4) g:nth-child(5) rect.child{
+	fill: #008ee4 !important;
+}
+.children:nth-child(4) g:nth-child(6) rect.child{
+	fill: #007fcd !important;
+}
+.children:nth-child(4) g:nth-child(7) rect.child{
+	fill: #0071b6 !important;
+}
+.children:nth-child(4) g:nth-child(8) rect.child{
+	fill: #00639f !important;
+}
+.children:nth-child(4) g:nth-child(9) rect.child{
+	fill: #005588 !important;
+}
+.children:nth-child(4) g:nth-child(10) rect.child{
+	fill: #004772 !important;
+}
+
+
+
+.children:nth-child(5) g:nth-child(1) rect.child{
+	fill: #d7bfe2 !important;
+}
+.children:nth-child(5) g:nth-child(2) rect.child{
+	fill: #c49fd4 !important;
+}
+.children:nth-child(5) g:nth-child(3) rect.child{
+	fill: #b07fc6 !important;
+}
+.children:nth-child(5) g:nth-child(4) rect.child{
+	fill: #9d60b8 !important;
+}
+.children:nth-child(5) g:nth-child(5) rect.child{
+	fill: #8d56a5 !important;
+}
+.children:nth-child(5) g:nth-child(6) rect.child{
+	fill: #7d4c93 !important;
+}
+.children:nth-child(5) g:nth-child(7) rect.child{
+	fill: #6d4380 !important;
+}
+.children:nth-child(5) g:nth-child(8) rect.child{
+	fill: #5e396e !important;
+}
+.children:nth-child(5) g:nth-child(9) rect.child{
+	fill: #4e305c !important;
+}
+.children:nth-child(5) g:nth-child(10) rect.child{
+	fill: #4e305c !important;
+}
+
+
+
+
+.children:nth-child(6) g:nth-child(1) rect.child{
+	fill: #d9f6fc !important;
+}
+.children:nth-child(6) g:nth-child(2) rect.child{
+	fill: #b3eefa !important;
+}
+.children:nth-child(6) g:nth-child(3) rect.child{
+	fill: #8ee5f8 !important;
+}
+.children:nth-child(6) g:nth-child(4) rect.child{
+	fill: #68ddf6 !important;
+}
+.children:nth-child(6) g:nth-child(5) rect.child{
+	fill: #43d5f4 !important;
+}
+.children:nth-child(6) g:nth-child(6) rect.child{
+	fill: #3cbfdb !important;
+}
+.children:nth-child(6) g:nth-child(7) rect.child{
+	fill: #35aac3 !important;
+}
+.children:nth-child(6) g:nth-child(8) rect.child{
+	fill: #2e95aa !important;
+}
+.children:nth-child(6) g:nth-child(9) rect.child{
+	fill: #287f92 !important;
+}
+.children:nth-child(6) g:nth-child(10) rect.child{
+	fill: #216a7a !important;
+}
+
+
+
+.children:nth-child(7) g:nth-child(1) rect.child{
+	fill: #f1f1f1 !important;
+}
+.children:nth-child(7) g:nth-child(2) rect.child{
+	fill: #e4e4e4 !important;
+}
+.children:nth-child(7) g:nth-child(3) rect.child{
+	fill: #d7d7d7 !important;
+}
+.children:nth-child(7) g:nth-child(4) rect.child{
+	fill: #cacaca !important;
+}
+.children:nth-child(7) g:nth-child(5) rect.child{
+	fill: #bdbdbd !important;
+}
+.children:nth-child(7) g:nth-child(6) rect.child{
+	fill: #aaaaaa !important;
+}
+.children:nth-child(7) g:nth-child(7) rect.child{
+	fill: #979797 !important;
+}
+.children:nth-child(7) g:nth-child(8) rect.child{
+	fill: #848484 !important;
+}
+.children:nth-child(7) g:nth-child(9) rect.child{
+	fill: #717171 !important;
+}
+.children:nth-child(7) g:nth-child(10) rect.child{
+	fill: #5e5e5e !important;
+}
+</style>
+
+
+
+
+
+<div class="container" >
+
+
+<div class="row axis_margin_row" style="margin-top:120px;">
+
+
+
+<div align="center" class="row axis_margin_row" >
+<div id="switch-forms"  class="col-sm-4 col-sm-offset-4">
+    <div  align="center" class="btn-group btn-group-justified" style="margin-top:5px; width: 50%">
+        <div class="btn-group active">
+          <button type="button" value="Geo" id="geographic_click" class="btn btn-default active" data-toggle="button">Geography</button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" value="Dep" id="edDept_click" class="btn btn-default">Dept</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-12">
+<div class="row">
+
+<div id="exitMonitoringDiv">
+<div class="col-md-12"  style="margin-top:5px;" >
+<div class="modal-content " style="height:400px;">
+<div id="charDivContainer" class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center" ><font  color="#ffffff">Exit Monitoring -Zone</font></h4>
+        </div>
+        <div id="chart"></div>
+<!-- <div id="totoalEmployeeStrengthDiv" style="width: 100%; height: 400px; background-color: #eaedeb;" ></div> -->
+</div>
+
+</div>
+</div>
+
+<div id="exitMonitoringEdDiv">
+<div class="col-md-12"  style="margin-top:5px;" >
+<div class="modal-content " style="height:400px;">
+<div id="charDivContainer" class="modal-header" style="background-color: #ad295f;">
+          <h4 class="modal-title" align="center" ><font  color="#ffffff">Exit Monitoring - Dept</font></h4>
+        </div>
+        <div id="chartEd"></div>
+<!-- <div id="totoalEmployeeStrengthDiv" style="width: 100%; height: 400px; background-color: #eaedeb;" ></div> -->
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div> 
+
+ <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	//submitDropdownSelection();
+	loadExitMonitoringZoneGraph();
+	loadExitMonitoringEdGraph();
+	
+	$('#switch-forms .btn').on('click', function() {
+		//	alert($(this).isActive());
+		
+			
+		    $('#switch-forms .btn').parent().removeClass('active');
+		    $('#switch-forms .btn').removeClass('active');
+		    var $this = $(this);
+		    $this.parent().addClass('active');
+		    $this.addClass('active');
+		   
+		});
+		$('#edDept_click').on('click', function() {
+			
+		    $('#exitMonitoringDiv').hide();
+		    $('#exitMonitoringEdDiv').show();
+		});
+		$('#geographic_click').on('click', function() {
+		    $('#exitMonitoringEdDiv').hide();
+		    $('#exitMonitoringDiv').show();
+		});
+	
+
+});
+
+
+
+
+window.addEventListener('message', function(e) {
+    var opts = e.data.opts,
+        data = e.data.data;
+alert();
+    return main(opts, data);
+});
+
+
+
+function mainEd(o, data,defaults) {
+	  var root,
+	      opts = $.extend(true, {}, defaults, o),
+	      formatNumber = d3.format(opts.format),
+	      rname = opts.rootname,
+	      margin = opts.margin,
+	      theight = 36 + 16;
+
+	  $('#chartEd').width(opts.width).height(opts.height);
+	  var width = opts.width - margin.left - margin.right,
+	      height = opts.height - margin.top - margin.bottom - theight,
+	      transitioning;
+	  
+	  var color = d3.scale.category20c();
+	  
+	  var x = d3.scale.linear()
+	      .domain([0, width])
+	      .range([0, width]);
+	  
+	  var y = d3.scale.linear()
+	      .domain([0, height])
+	      .range([0, height]);
+	  
+	  var treemap = d3.layout.treemap()
+	      .children(function(d, depth) { return depth ? null : d._children; })
+	      .sort(function(a, b) { return a.value - b.value; })
+	      .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
+	      .round(false);
+	  
+	  var svg = d3.select("#chartEd").append("svg")
+	      .attr("width", width + margin.left + margin.right)
+	     // .attr("height", height + margin.bottom + margin.top)
+	      .attr("height", height + margin.bottom + margin.top)
+	      .style("margin-left", -margin.left + "px")
+	      .style("margin.right", -margin.right + "px")
+	    .append("g")
+	      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+	      .style("shape-rendering", "crispEdges");
+	  
+	  var grandparent = svg.append("g")
+	      .attr("class", "grandparent");
+	  
+	  grandparent.append("rect")
+	      .attr("y", -margin.top)
+	      .attr("width", width)
+	      .attr("height", margin.top);
+	  
+	  grandparent.append("text")
+	      .attr("x", 6)
+	      .attr("y", 6 - margin.top)
+	      .attr("dy", ".75em");
+
+	  if (opts.title) {
+	    $("#chartEd").prepend("<p class='title'>" + opts.title + "</p>");
+	  }
+	  if (data instanceof Array) {
+	    root = { key: rname, values: data };
+	  } else {
+	    root = data;
+	  }
+	    
+	  initialize(root);
+	  accumulate(root);
+	  layout(root);
+	  console.log(root);
+	  display(root);
+
+	  if (window.parent !== window) {
+	    var myheight = document.documentElement.scrollHeight || document.body.scrollHeight;
+	    window.parent.postMessage({height: myheight}, '*');
+	  }
+
+	  function initialize(root) {
+	    root.x = root.y = 0;
+	    root.dx = width;
+	    root.dy = height;
+	    root.depth = 0;
+	  }
+
+	  // Aggregate the values for internal nodes. This is normally done by the
+	  // treemap layout, but not here because of our custom implementation.
+	  // We also take a snapshot of the original children (_children) to avoid
+	  // the children being overwritten when when layout is computed.
+	  function accumulate(d) {
+	    return (d._children = d.values)
+	        ? d.value = d.values.reduce(function(p, v) { return p + accumulate(v); }, 0)
+	        : d.value;
+	  }
+
+	  // Compute the treemap layout recursively such that each group of siblings
+	  // uses the same size (1×1) rather than the dimensions of the parent cell.
+	  // This optimizes the layout for the current zoom state. Note that a wrapper
+	  // object is created for the parent node for each group of siblings so that
+	  // the parent’s dimensions are not discarded as we recurse. Since each group
+	  // of sibling was laid out in 1×1, we must rescale to fit using absolute
+	  // coordinates. This lets us use a viewport to zoom.
+	  function layout(d) {
+	    if (d._children) {
+	      treemap.nodes({_children: d._children});
+	      d._children.forEach(function(c) {
+	        c.x = d.x + c.x * d.dx;
+	        c.y = d.y + c.y * d.dy;
+	        c.dx *= d.dx;
+	        c.dy *= d.dy;
+	        c.parent = d;
+	        layout(c);
+	      });
+	    }
+	  }
+
+	  function display(d) {
+	    grandparent
+	        .datum(d.parent)
+	        .on("click", transition)
+	      .select("text")
+	        .text(name(d));
+
+	    var g1 = svg.insert("g", ".grandparent")
+	        .datum(d)
+	        .attr("class", "depth");
+
+	    var g = g1.selectAll("g")
+	        .data(d._children)
+	      .enter().append("g");
+
+	    g.filter(function(d) { return d._children; })
+	        .classed("children", true)
+	        .on("click", transition);
+
+	    var children = g.selectAll(".child")
+	        .data(function(d) { return d._children || [d]; })
+	      .enter().append("g");
+
+	    children.append("rect")
+	        .attr("class", "child")
+	        .call(rect)
+	      .append("title")
+	        .text(function(d) { return d.key + " (" + formatNumber(d.value) + ")"; });
+	    children.append("text")
+	        .attr("class", "ctext")
+	        .text(function(d) { return d.key; })
+	        .call(text2);
+
+	    g.append("rect")
+	        .attr("class", "parent")
+	        .call(rect);
+
+	    var t = g.append("text")
+	        .attr("class", "ptext")
+	        .attr("dy", ".75em")
+
+	    t.append("tspan")
+	        .text(function(d) { return d.key; });
+	    t.append("tspan")
+	        .attr("dy", "1.0em")
+	        .text(function(d) { return formatNumber(d.value); });
+	    t.call(text);
+
+	    g.selectAll("rect")
+	        .style("fill", function(d) { return color(d.key); });
+
+	    function transition(d) {
+	      if (transitioning || !d) return;
+	      transitioning = true;
+
+	      var g2 = display(d),
+	          t1 = g1.transition().duration(750),
+	          t2 = g2.transition().duration(750);
+
+	      // Update the domain only after entering new elements.
+	      x.domain([d.x, d.x + d.dx]);
+	      y.domain([d.y, d.y + d.dy]);
+
+	      // Enable anti-aliasing during the transition.
+	      svg.style("shape-rendering", null);
+
+	      // Draw child nodes on top of parent nodes.
+	      svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+
+	      // Fade-in entering text.
+	      g2.selectAll("text").style("fill-opacity", 0);
+
+	      // Transition to the new view.
+	      t1.selectAll(".ptext").call(text).style("fill-opacity", 0);
+	      t1.selectAll(".ctext").call(text2).style("fill-opacity", 0);
+	      t2.selectAll(".ptext").call(text).style("fill-opacity", 1);
+	      t2.selectAll(".ctext").call(text2).style("fill-opacity", 1);
+	      t1.selectAll("rect").call(rect);
+	      t2.selectAll("rect").call(rect);
+
+	      // Remove the old node when the transition is finished.
+	      t1.remove().each("end", function() {
+	        svg.style("shape-rendering", "crispEdges");
+	        transitioning = false;
+	      });
+	    }
+
+	    return g;
+	  }
+
+	  function text(text) {
+	    text.selectAll("tspan")
+	        .attr("x", function(d) { return x(d.x) + 6; })
+	    text.attr("x", function(d) { return x(d.x) + 6; })
+	        .attr("y", function(d) { return y(d.y) + 6; })
+	        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+	  }
+
+	  function text2(text) {
+	    text.attr("x", function(d) { return x(d.x + d.dx) - this.getComputedTextLength() - 6; })
+	        .attr("y", function(d) { return y(d.y + d.dy) - 6; })
+	        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+	  }
+
+	  function rect(rect) {
+	    rect.attr("x", function(d) { return x(d.x); })
+	        .attr("y", function(d) { return y(d.y); })
+	        .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+	        .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+	  }
+
+	  function name(d) {
+	    return d.parent
+	        ? name(d.parent) + " / " + d.key + " (" + formatNumber(d.value) + ")"
+	        : d.key + " (" + formatNumber(d.value) + ")";
+	  }
+	}
+	
+	
+var colorDomain = [-.6, 0, .6],
+colorRange = ["#373a93", 'white', "#936638"];
+
+function colorIncrements(d){
+    return (colorDomain[colorDomain.length - 1] - colorDomain[0])/18*d + colorDomain[0];
+}
+
+function getContrast50(hexcolor){
+    return (parseInt(hexcolor.replace('#', ''), 16) > 0xffffff/3) ? 'black':'white';
+}
+
+  
+
+function mainZone(o, data,defaults) {
+  var root,
+      opts = $.extend(true, {}, defaults, o),
+      formatNumber = d3.format(opts.format),
+      rname = opts.rootname,
+      margin = opts.margin,
+      theight = 36 + 16;
+
+  $('#chart').width(opts.width).height(opts.height);
+  var width = opts.width - margin.left - margin.right,
+      height = opts.height - margin.top - margin.bottom - theight,
+      transitioning;
+  
+//  var color = d3.scale.category20c();
+  var color = d3.scale.linear()
+    .domain(colorDomain)
+    .range(colorRange);
+  
+  
+  var x = d3.scale.linear()
+      .domain([0, width])
+      .range([0, width]);
+  
+  var y = d3.scale.linear()
+      .domain([0, height])
+      .range([0, height]);
+  
+  var treemap = d3.layout.treemap()
+      .children(function(d, depth) { return depth ? null : d._children; })
+      .sort(function(a, b) { return a.value - b.value; })
+      .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
+      .round(false);
+  
+  var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+     // .attr("height", height + margin.bottom + margin.top)
+      .attr("height", height + margin.bottom + margin.top)
+      .style("margin-left", -margin.left + "px")
+      .style("margin.right", -margin.right + "px")
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .style("shape-rendering", "crispEdges");
+  
+  var grandparent = svg.append("g")
+      .attr("class", "grandparent");
+  
+  grandparent.append("rect")
+      .attr("y", -margin.top)
+      .attr("width", width)
+      .attr("height", margin.top);
+  
+  grandparent.append("text")
+      .attr("x", 6)
+      .attr("y", 6 - margin.top)
+      .attr("dy", ".75em");
+
+  if (opts.title) {
+    $("#chart").prepend("<p class='title'>" + opts.title + "</p>");
+  }
+  if (data instanceof Array) {
+    root = { key: rname, values: data };
+  } else {
+    root = data;
+  }
+    
+  initialize(root);
+  accumulate(root);
+  layout(root);
+  console.log(root);
+  display(root);
+
+  if (window.parent !== window) {
+    var myheight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    window.parent.postMessage({height: myheight}, '*');
+  }
+
+  function initialize(root) {
+    root.x = root.y = 0;
+    root.dx = width;
+    root.dy = height;
+    root.depth = 0;
+  }
+
+  // Aggregate the values for internal nodes. This is normally done by the
+  // treemap layout, but not here because of our custom implementation.
+  // We also take a snapshot of the original children (_children) to avoid
+  // the children being overwritten when when layout is computed.
+  function accumulate(d) {
+    return (d._children = d.values)
+        ? d.value = d.values.reduce(function(p, v) { return p + accumulate(v); }, 0)
+        : d.value;
+  }
+
+  // Compute the treemap layout recursively such that each group of siblings
+  // uses the same size (1×1) rather than the dimensions of the parent cell.
+  // This optimizes the layout for the current zoom state. Note that a wrapper
+  // object is created for the parent node for each group of siblings so that
+  // the parent’s dimensions are not discarded as we recurse. Since each group
+  // of sibling was laid out in 1×1, we must rescale to fit using absolute
+  // coordinates. This lets us use a viewport to zoom.
+  function layout(d) {
+    if (d._children) {
+      treemap.nodes({_children: d._children});
+      d._children.forEach(function(c) {
+        c.x = d.x + c.x * d.dx;
+        c.y = d.y + c.y * d.dy;
+        c.dx *= d.dx;
+        c.dy *= d.dy;
+        c.parent = d;
+        layout(c);
+      });
+    }
+  }
+
+  function display(d) {
+    grandparent
+        .datum(d.parent)
+        .on("click", transition)
+      .select("text")
+        .text(name(d));
+
+    
+    // color header based on grandparent's rate
+    grandparent
+      .datum(d.parent)
+      .select("rect")
+      .attr("fill", function(){console.log(color(d.rate)); return color(d['rate'])})
+    var g1 = svg.insert("g", ".grandparent")
+        .datum(d)
+        .attr("class", "depth");
+
+    var g = g1.selectAll("g")
+        .data(d._children)
+      .enter().append("g");
+
+    g.filter(function(d) { return d._children; })
+        .classed("children", true)
+        .on("click", transition);
+
+    var children = g.selectAll(".child")
+        .data(function(d) { return d._children || [d]; })
+      .enter().append("g");
+
+    children.append("rect")
+        .attr("class", "child")
+        .call(rect)
+      .append("title")
+        .text(function(d) { return d.key + " (" + formatNumber(d.value) + ")"; });
+    children.append("text")
+        .attr("class", "ctext")
+        .text(function(d) { return d.key; })
+        .call(text2);
+
+    g.append("rect")
+        .attr("class", "parent")
+        .call(rect);
+
+    var t = g.append("text")
+        .attr("class", "ptext")
+        .attr("dy", ".75em")
+
+    t.append("tspan")
+        .text(function(d) { return d.key; });
+    t.append("tspan")
+        .attr("dy", "1.0em")
+        .text(function(d) { return formatNumber(d.value); });
+    t.call(text);
+
+    g.selectAll("rect")
+        .style("fill", function(d) { return color(d.key); });
+
+    function transition(d) {
+      if (transitioning || !d) return;
+      transitioning = true;
+
+      var g2 = display(d),
+          t1 = g1.transition().duration(750),
+          t2 = g2.transition().duration(750);
+
+      // Update the domain only after entering new elements.
+      x.domain([d.x, d.x + d.dx]);
+      y.domain([d.y, d.y + d.dy]);
+
+      // Enable anti-aliasing during the transition.
+      svg.style("shape-rendering", null);
+
+      // Draw child nodes on top of parent nodes.
+      svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+
+      // Fade-in entering text.
+      g2.selectAll("text").style("fill-opacity", 0);
+
+      // Transition to the new view.
+      t1.selectAll(".ptext").call(text).style("fill-opacity", 0);
+      t1.selectAll(".ctext").call(text2).style("fill-opacity", 0);
+      t2.selectAll(".ptext").call(text).style("fill-opacity", 1);
+      t2.selectAll(".ctext").call(text2).style("fill-opacity", 1);
+      t1.selectAll("rect").call(rect);
+      t2.selectAll("rect").call(rect);
+
+      // Remove the old node when the transition is finished.
+      t1.remove().each("end", function() {
+        svg.style("shape-rendering", "crispEdges");
+        transitioning = false;
+      });
+    }
+
+    return g;
+  }
+
+  function text(text) {
+    text.selectAll("tspan")
+        .attr("x", function(d) { return x(d.x) + 6; })
+    text.attr("x", function(d) { return x(d.x) + 6; })
+        .attr("y", function(d) { return y(d.y) + 6; })
+         .attr("fill", function (d) {return getContrast50(color(parseFloat(d.rate)))})
+        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+  }
+
+  function text2(text) {
+    text.attr("x", function(d) { return x(d.x + d.dx) - this.getComputedTextLength() - 6; })
+        .attr("y", function(d) { return y(d.y + d.dy) - 6; })
+          .attr("fill", function (d) {return getContrast50(color(parseFloat(d.rate)))})
+        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+  }
+
+  function rect(rect) {
+    rect.attr("x", function(d) { return x(d.x); })
+        .attr("y", function(d) { return y(d.y); })
+        .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+        .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); })
+         .attr("fill", function(d){return color(parseFloat(d.rate));});
+  }
+
+  function name(d) {
+    return d.parent
+        ? name(d.parent) + " / " + d.key + " (" + formatNumber(d.value) + ")"
+        : d.key + " (" + formatNumber(d.value) + ")";
+  }
+}
+
+/* if (window.location.hash === "") {
+    d3.json("exitMonitoring/getExitMonitoring.json", function(err, res) {
+        if (!err) {
+            console.log(res);
+            var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
+            //main({title: "World Population"}, {key: "World", values: data});
+            
+            main({title: ""}, {key: "India", values: data});
+        }
+    });
+}
+ */
+
+
+function loadExitMonitoringZoneGraph(){
+	 
+	 var defaults = {
+			    margin: {top: 24, right: 0, bottom: 0, left: 0},
+			    rootname: "TOP",
+			    format: ",d",
+			    title: "",
+			    
+			     width:$('#chart').parent().width(),
+			    
+			    //width: 960,
+			    //height: $('#chart').parent().width(),
+			     height: 400
+			};
+	 
+	 
+	// d3.json("exitMonitoring/getExitMonitoring.json", function(err, res) {
+	
+	var res=[{"key":"CO","region":"CO","subregion":"CO","value":833,"rate":0.0},{"key":"FARIDKOT","region":"NZONE","subregion":"PUNJAB","value":13,"rate":0.5},{"key":"PUNE PIMPRI","region":"WZONE","subregion":"PUNE","value":22,"rate":0.84},{"key":"KOLHAPUR","region":"WZONE","subregion":"PUNE","value":12,"rate":0.46},{"key":"NORTH BENGAL & SIKKIM","region":"EZONE","subregion":"WEST BENGAL","value":14,"rate":0.54},{"key":"GURGAON1","region":"NZONE","subregion":"DELHI","value":6,"rate":0.23},{"key":"KRISHNANAGAR","region":"EZONE","subregion":"WEST BENGAL","value":17,"rate":0.65},{"key":"HISSAR","region":"NZONE","subregion":"PANCHKULA","value":18,"rate":0.69},{"key":"RAJKOT","region":"WZONE","subregion":"GUJARAT","value":8,"rate":0.31},{"key":"SOUTH DELHI","region":"NZONE","subregion":"DELHI","value":6,"rate":0.23},{"key":"AURANGABAD","region":"WZONE","subregion":"NAGPUR","value":11,"rate":0.42},{"key":"VELACHERY","region":"SZONE","subregion":"CHENNAI","value":11,"rate":0.42},{"key":"TRICHY","region":"SZONE","subregion":"COIMBATORE","value":9,"rate":0.34},{"key":"HOSHIARPUR","region":"NZONE","subregion":"PUNJAB","value":4,"rate":0.15},{"key":"WEST DELHI","region":"NZONE","subregion":"DELHI","value":8,"rate":0.31},{"key":"PATIALA","region":"NZONE","subregion":"PUNJAB","value":15,"rate":0.57},{"key":"DHANBAD","region":"EZONE","subregion":"PATNA","value":11,"rate":0.42},{"key":"MEHDIPATNAM","region":"SZONE","subregion":"HYDERABAD","value":7,"rate":0.27},{"key":"BANDRA","region":"WZONE","subregion":"MUMBAI","value":7,"rate":0.27},{"key":"MEHSANA","region":"WZONE","subregion":"GUJARAT","value":7,"rate":0.27},{"key":"KORAMANGALA","region":"SZONE","subregion":"BANGALORE","value":13,"rate":0.5},{"key":"JIND","region":"NZONE","subregion":"PANCHKULA","value":20,"rate":0.77},{"key":"JAMSHEDPUR","region":"EZONE","subregion":"PATNA","value":7,"rate":0.27},{"key":"LUCKNOW 1","region":"NZONE","subregion":"LUCKNOW","value":5,"rate":0.19},{"key":"KOLKATA NORTH","region":"EZONE","subregion":"KOLKATA","value":10,"rate":0.38},{"key":"VIRAR","region":"WZONE","subregion":"MUMBAI","value":6,"rate":0.23},{"key":"BHOPAL SOUTH","region":"WZONE","subregion":"BHOPAL","value":7,"rate":0.27},{"key":"KOLKATA CENTRAL","region":"EZONE","subregion":"KOLKATA","value":6,"rate":0.23},{"key":"AMRITSAR1","region":"NZONE","subregion":"DELHI","value":1,"rate":0.04},{"key":"KORBA","region":"EZONE","subregion":"RAIPUR","value":19,"rate":0.73},{"key":"VALSAD","region":"WZONE","subregion":"GUJARAT","value":5,"rate":0.19},{"key":"AGRA","region":"NZONE","subregion":"DEHARADUN","value":19,"rate":0.73},{"key":"PATNA WEST","region":"EZONE","subregion":"PATNA","value":3,"rate":0.11},{"key":"JODHPUR","region":"NZONE","subregion":"JAIPUR","value":6,"rate":0.23},{"key":"BAREILLY","region":"NZONE","subregion":"DEHARADUN","value":17,"rate":0.65},{"key":"BATHINDA","region":"NZONE","subregion":"PUNJAB","value":13,"rate":0.5},{"key":"YELAHANKA","region":"SZONE","subregion":"BANGALORE","value":13,"rate":0.5},{"key":"KOLKATA SOUTH EAST","region":"EZONE","subregion":"KOLKATA","value":11,"rate":0.42},{"key":"NORTH DELHI","region":"NZONE","subregion":"DELHI","value":10,"rate":0.38},{"key":"DIMAPUR","region":"EZONE","subregion":"NORTH EAST","value":12,"rate":0.46},{"key":"SONIPAT","region":"NZONE","subregion":"PANCHKULA","value":9,"rate":0.34},{"key":"CENTRAL DELHI","region":"NZONE","subregion":"DELHI","value":12,"rate":0.46},{"key":"VISAKHAPATNAM","region":"SZONE","subregion":"ANDHRA","value":13,"rate":0.5},{"key":"ADYAR","region":"SZONE","subregion":"CHENNAI","value":9,"rate":0.34},{"key":"STRATEGIC BRANCHES","region":"WZONE","subregion":"PUNE","value":3,"rate":0.11},{"key":"BHUBANESWAR","region":"EZONE","subregion":"BHUBANESWAR","value":9,"rate":0.34},{"key":"SURAT","region":"WZONE","subregion":"GUJARAT","value":4,"rate":0.15},{"key":"CHANDIGARH2","region":"NZONE","subregion":"PUNJAB","value":9,"rate":0.34},{"key":"BHOPAL NORTH","region":"WZONE","subregion":"BHOPAL","value":9,"rate":0.34},{"key":"GANDHINAGAR","region":"WZONE","subregion":"GUJARAT","value":6,"rate":0.23},{"key":"AMRITSAR1","region":"NZONE","subregion":"PUNJAB","value":10,"rate":0.38},{"key":"MORADABAD","region":"NZONE","subregion":"DEHARADUN","value":14,"rate":0.54},{"key":"SIKAR","region":"NZONE","subregion":"JAIPUR","value":21,"rate":0.8},{"key":"KHARAGPUR","region":"EZONE","subregion":"WEST BENGAL","value":12,"rate":0.46},{"key":"KARNAL","region":"NZONE","subregion":"PANCHKULA","value":16,"rate":0.61},{"key":"ALWAR","region":"NZONE","subregion":"JAIPUR","value":21,"rate":0.8},{"key":"BANJARAHILLS","region":"SZONE","subregion":"HYDERABAD","value":6,"rate":0.23},{"key":"SOUTH MUMBAI","region":"WZONE","subregion":"MUMBAI","value":8,"rate":0.31},{"key":"GURGAON2","region":"NZONE","subregion":"DELHI","value":10,"rate":0.38},{"key":"KOLKATA SOUTH","region":"EZONE","subregion":"KOLKATA","value":8,"rate":0.31},{"key":"ROHTAK","region":"NZONE","subregion":"PANCHKULA","value":9,"rate":0.34},{"key":"STRATEGIC BRANCHES","region":"EZONE","subregion":"KOLKATA","value":1,"rate":0.04},{"key":"STRATEGIC BRANCHES","region":"EZONE","subregion":"NORTH EAST","value":4,"rate":0.15},{"key":"STRATEGIC BRANCHES","region":"EZONE","subregion":"PATNA","value":4,"rate":0.15},{"key":"KOLKATA WEST","region":"EZONE","subregion":"KOLKATA","value":9,"rate":0.34},{"key":"PONDICHERRY","region":"SZONE","subregion":"CHENNAI","value":11,"rate":0.42},{"key":"NAIHATI","region":"EZONE","subregion":"WEST BENGAL","value":22,"rate":0.84},{"key":"SHIMOGA","region":"SZONE","subregion":"HUBLI","value":10,"rate":0.38},{"key":"LUDHIANA1","region":"NZONE","subregion":"PUNJAB","value":10,"rate":0.38},{"key":"NORTH WEST DELHI","region":"NZONE","subregion":"DELHI","value":14,"rate":0.54},{"key":"TIRUPATI","region":"SZONE","subregion":"ANDHRA","value":8,"rate":0.31},{"key":"TRIVANDRUM","region":"SZONE","subregion":"KERALA","value":18,"rate":0.69},{"key":"RAMAPURAM","region":"SZONE","subregion":"CHENNAI","value":17,"rate":0.65},{"key":"INDORE EAST","region":"WZONE","subregion":"BHOPAL","value":7,"rate":0.27},{"key":"DURG","region":"EZONE","subregion":"RAIPUR","value":14,"rate":0.54},{"key":"BORIVALI","region":"WZONE","subregion":"MUMBAI","value":6,"rate":0.23},{"key":"CUTTACK","region":"EZONE","subregion":"BHUBANESWAR","value":6,"rate":0.23},{"key":"JAIPUR 2","region":"NZONE","subregion":"JAIPUR","value":17,"rate":0.65},{"key":"GEORGE TOWN","region":"SZONE","subregion":"CHENNAI","value":6,"rate":0.23},{"key":"ANDHERI","region":"WZONE","subregion":"MUMBAI","value":9,"rate":0.34},{"key":"MALLESWARAM","region":"SZONE","subregion":"BANGALORE","value":12,"rate":0.46},{"key":"VIJAYAWADA","region":"SZONE","subregion":"ANDHRA","value":6,"rate":0.23},{"key":"J&K","region":"NZONE","subregion":"PANCHKULA","value":5,"rate":0.19},{"key":"KOLKATA NORTH EAST","region":"EZONE","subregion":"KOLKATA","value":10,"rate":0.38},{"key":"PANCHKULA","region":"NZONE","subregion":"PANCHKULA","value":8,"rate":0.31},{"key":"KOCHI","region":"SZONE","subregion":"KERALA","value":18,"rate":0.69},{"key":"BILASPUR","region":"EZONE","subregion":"RAIPUR","value":14,"rate":0.54},{"key":"PEENYA","region":"SZONE","subregion":"BANGALORE","value":16,"rate":0.61},{"key":"PUNE WANAWADI","region":"WZONE","subregion":"PUNE","value":11,"rate":0.42},{"key":"JALANDHAR","region":"NZONE","subregion":"PUNJAB","value":23,"rate":0.88},{"key":"VADODARA","region":"WZONE","subregion":"GUJARAT","value":7,"rate":0.27},{"key":"BHAVNAGAR","region":"WZONE","subregion":"GUJARAT","value":9,"rate":0.34},{"key":"RUDRAPUR","region":"NZONE","subregion":"DEHARADUN","value":16,"rate":0.61},{"key":"PUNE KOTHRUD","region":"WZONE","subregion":"PUNE","value":19,"rate":0.73},{"key":"VARANASI","region":"NZONE","subregion":"LUCKNOW","value":10,"rate":0.38},{"key":"AMRITSAR2","region":"NZONE","subregion":"PUNJAB","value":15,"rate":0.57},{"key":"SHILLONG","region":"EZONE","subregion":"NORTH EAST","value":9,"rate":0.34},{"key":"RAIPUR","region":"EZONE","subregion":"RAIPUR","value":13,"rate":0.5},{"key":"SAMBALPUR","region":"EZONE","subregion":"BHUBANESWAR","value":17,"rate":0.65},{"key":"JABALPUR","region":"EZONE","subregion":"RAIPUR","value":11,"rate":0.42},{"key":"RAIGAD","region":"WZONE","subregion":"MUMBAI","value":6,"rate":0.23},{"key":"GWALIOR","region":"WZONE","subregion":"BHOPAL","value":10,"rate":0.38},{"key":"STRATEGIC BRANCHES","region":"NZONE","subregion":"PUNJAB","value":1,"rate":0.04},{"key":"DILSUKHNAGAR","region":"SZONE","subregion":"HYDERABAD","value":3,"rate":0.11},{"key":"KEONJHAR","region":"EZONE","subregion":"BHUBANESWAR","value":5,"rate":0.19},{"key":"SILIGURI","region":"EZONE","subregion":"WEST BENGAL","value":7,"rate":0.27},{"key":"ANNA SALAI","region":"SZONE","subregion":"CHENNAI","value":18,"rate":0.69},{"key":"EAST DELHI","region":"NZONE","subregion":"DELHI","value":7,"rate":0.27},{"key":"BHAGALPUR","region":"EZONE","subregion":"PATNA","value":4,"rate":0.15},{"key":"AGARTALA","region":"EZONE","subregion":"NORTH EAST","value":8,"rate":0.31},{"key":"GREATER KOLKATA","region":"EZONE","subregion":"KOLKATA","value":9,"rate":0.34},{"key":"CHANDIGARH1","region":"NZONE","subregion":"PUNJAB","value":10,"rate":0.38},{"key":"NOIDA","region":"NZONE","subregion":"DELHI","value":6,"rate":0.23},{"key":"NAGPUR","region":"WZONE","subregion":"NAGPUR","value":12,"rate":0.46},{"key":"BERHAMPUR","region":"EZONE","subregion":"BHUBANESWAR","value":8,"rate":0.31},{"key":"JHANSI","region":"NZONE","subregion":"LUCKNOW","value":9,"rate":0.34},{"key":"ERODE","region":"SZONE","subregion":"COIMBATORE","value":17,"rate":0.65},{"key":"THANE","region":"WZONE","subregion":"MUMBAI","value":11,"rate":0.42},{"key":"CALICUT","region":"SZONE","subregion":"KERALA","value":13,"rate":0.5},{"key":"CENTRAL MUMBAI","region":"WZONE","subregion":"MUMBAI","value":8,"rate":0.31},{"key":"SALEM","region":"SZONE","subregion":"COIMBATORE","value":9,"rate":0.34},{"key":"COIMBATORE","region":"SZONE","subregion":"COIMBATORE","value":15,"rate":0.57},{"key":"JORHAT","region":"EZONE","subregion":"NORTH EAST","value":12,"rate":0.46},{"key":"GUNTUR","region":"SZONE","subregion":"ANDHRA","value":10,"rate":0.38},{"key":"MADURAI","region":"SZONE","subregion":"COIMBATORE","value":18,"rate":0.69},{"key":"FARIDABAD","region":"NZONE","subregion":"DELHI","value":8,"rate":0.31},{"key":"GUJARAT RURAL-2","region":"WZONE","subregion":"GUJARAT","value":8,"rate":0.31},{"key":"SOLAPUR","region":"WZONE","subregion":"PUNE","value":13,"rate":0.5},{"key":"STRATEGIC BRANCHES","region":"NZONE","subregion":"DELHI","value":1,"rate":0.04},{"key":"GULBARGA","region":"SZONE","subregion":"HUBLI","value":10,"rate":0.38},{"key":"DEHRADUN","region":"NZONE","subregion":"DEHARADUN","value":8,"rate":0.31},{"key":"WARANGAL","region":"SZONE","subregion":"HYDERABAD","value":8,"rate":0.31},{"key":"STRATEGIC BRANCHES","region":"WZONE","subregion":"GUJARAT","value":1,"rate":0.04},{"key":"BHUBANESWAR RURAL 1","region":"EZONE","subregion":"BHUBANESWAR","value":6,"rate":0.23},{"key":"BHARUCH","region":"WZONE","subregion":"GUJARAT","value":7,"rate":0.27},{"key":"TARNAKA","region":"SZONE","subregion":"HYDERABAD","value":4,"rate":0.15},{"key":"KOTA UDAIPUR","region":"NZONE","subregion":"JAIPUR","value":12,"rate":0.46},{"key":"HOSPET","region":"SZONE","subregion":"HUBLI","value":15,"rate":0.57},{"key":"LUDHIANA2","region":"NZONE","subregion":"PUNJAB","value":14,"rate":0.54},{"key":"GOA","region":"WZONE","subregion":"PUNE","value":5,"rate":0.19},{"key":"BHUBANESWAR RURAL 2","region":"EZONE","subregion":"BHUBANESWAR","value":6,"rate":0.23},{"key":"BANASHANKARI","region":"SZONE","subregion":"BANGALORE","value":9,"rate":0.34},{"key":"DURGAPUR","region":"EZONE","subregion":"WEST BENGAL","value":19,"rate":0.73},{"key":"KUKATPALLY","region":"SZONE","subregion":"HYDERABAD","value":7,"rate":0.27},{"key":"AHMEDABAD-EAST","region":"WZONE","subregion":"GUJARAT","value":7,"rate":0.27},{"key":"STRATEGIC BRANCHES","region":"WZONE","subregion":"MUMBAI","value":4,"rate":0.15},{"key":"MEERUT","region":"NZONE","subregion":"DEHARADUN","value":17,"rate":0.65},{"key":"JALGAON","region":"WZONE","subregion":"NAGPUR","value":11,"rate":0.42},{"key":"SECUNDERABAD","region":"SZONE","subregion":"HYDERABAD","value":5,"rate":0.19},{"key":"KUTCH","region":"WZONE","subregion":"GUJARAT","value":9,"rate":0.34},{"key":"DHARWAD","region":"SZONE","subregion":"HUBLI","value":13,"rate":0.5},{"key":"INDIRA NAGAR","region":"SZONE","subregion":"BANGALORE","value":12,"rate":0.46},{"key":"MUZAFFARPUR","region":"EZONE","subregion":"PATNA","value":13,"rate":0.5},{"key":"PATNA EAST","region":"EZONE","subregion":"PATNA","value":11,"rate":0.42},{"key":"TIRUNELVELI","region":"SZONE","subregion":"COIMBATORE","value":3,"rate":0.11},{"key":"JAIPUR 1","region":"NZONE","subregion":"JAIPUR","value":13,"rate":0.5},{"key":"NAVI MUMBAI","region":"WZONE","subregion":"MUMBAI","value":5,"rate":0.19},{"key":"NASHIK","region":"WZONE","subregion":"NAGPUR","value":12,"rate":0.46},{"key":"STRATEGIC BRANCHES","region":"SZONE","subregion":"CHENNAI","value":1,"rate":0.04},{"key":"AMRAVATI","region":"WZONE","subregion":"NAGPUR","value":12,"rate":0.46},{"key":"LUCKNOW2","region":"NZONE","subregion":"LUCKNOW","value":18,"rate":0.69},{"key":"SANGRUR","region":"NZONE","subregion":"PUNJAB","value":7,"rate":0.27},{"key":"KANPUR","region":"NZONE","subregion":"LUCKNOW","value":6,"rate":0.23},{"key":"STRATEGIC BRANCHES","region":"WZONE","subregion":"BHOPAL","value":1,"rate":0.04},{"key":"STRATEGIC BRANCHES","region":"EZONE","subregion":"RAIPUR","value":1,"rate":0.04},{"key":"AMBALA","region":"NZONE","subregion":"PANCHKULA","value":20,"rate":0.77},{"key":"MANGALORE","region":"SZONE","subregion":"HUBLI","value":4,"rate":0.15},{"key":"GURAKHPUR","region":"NZONE","subregion":"LUCKNOW","value":12,"rate":0.46},{"key":"AHMEDABAD-WEST","region":"WZONE","subregion":"GUJARAT","value":9,"rate":0.34},{"key":"INDORE WEST","region":"WZONE","subregion":"BHOPAL","value":8,"rate":0.31},{"key":"VALLABH VIDYANAGAR","region":"WZONE","subregion":"GUJARAT","value":10,"rate":0.38},{"key":"RAJAHMUNDRY","region":"SZONE","subregion":"ANDHRA","value":8,"rate":0.31},{"key":"THRISSUR","region":"SZONE","subregion":"KERALA","value":12,"rate":0.46},{"key":"GUWAHATI","region":"EZONE","subregion":"NORTH EAST","value":15,"rate":0.57},{"key":"KURNOOL","region":"SZONE","subregion":"ANDHRA","value":5,"rate":0.19},{"key":"GHATKOPAR","region":"WZONE","subregion":"MUMBAI","value":10,"rate":0.38},{"key":"AHMEDABAD-NORTH","region":"WZONE","subregion":"GUJARAT","value":8,"rate":0.31},{"key":"RANCHI","region":"EZONE","subregion":"PATNA","value":8,"rate":0.31},{"key":"GUJARAT RURAL-1","region":"WZONE","subregion":"GUJARAT","value":2,"rate":0.08},{"key":"STRATEGIC BRANCHES","region":"SZONE","subregion":"COIMBATORE","value":1,"rate":0.04}];
+	      //  if (!err) {
+	            console.log(res);
+	            var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).key(function(d) { return d.rate; }).entries(res);
+	            //main({title: "World Population"}, {key: "World", values: data});
+	            
+	            mainZone({title: ""}, {key: "India", values: data},defaults);
+	     //   }
+	 //   });
+	 
+ }
+ 
+ 
+ function loadExitMonitoringEdGraph(){
+	 
+	 var defaults = {
+			    margin: {top: 24, right: 0, bottom: 0, left: 0},
+			    rootname: "TOP",
+			    format: ",d",
+			    title: "",
+			    
+			     width:$('#chartEd').parent().width(),
+			    
+			    //width: 960,
+			    //height: $('#chart').parent().width(),
+			     height: 400
+			};
+	 
+	 
+	 d3.json("exitMonitoring/getEdExitMonitoring.json", function(err, res) {
+	        if (!err) {
+	            console.log(res);
+	            var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
+	            //main({title: "World Population"}, {key: "World", values: data});
+	            
+	            mainEd({title: ""}, {key: "India", values: data},defaults);
+	        }
+	    });
+	 
+ }
+
+
+
+
+ 
+if (false) {
+    
+            var res=[
+  {
+    "key": "Afghanistan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 25500100
+  },
+  {
+    "key": "Åland Islands",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 28502
+  },
+  {
+    "key": "Albania",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 2821977
+  },
+  {
+    "key": "Algeria",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 37900000
+  },
+  {
+    "key": "American Samoa",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 55519
+  },
+  {
+    "key": "Andorra",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 76246
+  },
+  {
+    "key": "Angola",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 20609294
+  },
+  {
+    "key": "Anguilla",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 13452
+  },
+  {
+    "key": "Antarctica",
+    "region": "",
+    "subregion": "",
+    "value": -1
+  },
+  {
+    "key": "Antigua and Barbuda",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 86295
+  },
+  {
+    "key": "Argentina",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 40117096
+  },
+  {
+    "key": "Armenia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 3024100
+  },
+  {
+    "key": "Aruba",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 101484
+  },
+  {
+    "key": "Australia",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "value": 23254142
+  },
+  {
+    "key": "Austria",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 8501502
+  },
+  {
+    "key": "Azerbaijan",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 9235100
+  },
+  {
+    "key": "Bahamas",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": -1
+  },
+  {
+    "key": "Bahrain",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 1234571
+  },
+  {
+    "key": "Bangladesh",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 152518015
+  },
+  {
+    "key": "Barbados",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 274200
+  },
+  {
+    "key": "Belarus",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 9465500
+  },
+  {
+    "key": "Belgium",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 11175653
+  },
+  {
+    "key": "Belize",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 312971
+  },
+  {
+    "key": "Benin",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 10323000
+  },
+  {
+    "key": "Bermuda",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": 64237
+  },
+  {
+    "key": "Bhutan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 740990
+  },
+  {
+    "key": "Bolivia",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 10027254
+  },
+  {
+    "key": "Bonaire",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": -1
+  },
+  {
+    "key": "Bosnia and Herzegovina",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 3791622
+  },
+  {
+    "key": "Botswana",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "value": 2024904
+  },
+  {
+    "key": "Bouvet Island",
+    "region": "",
+    "subregion": "",
+    "value": -1
+  },
+  {
+    "key": "Brazil",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 201032714
+  },
+  {
+    "key": "British Indian Ocean Territory",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": -1
+  },
+  {
+    "key": "British Virgin Islands",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 29537
+  },
+  {
+    "key": "Brunei",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 393162
+  },
+  {
+    "key": "Bulgaria",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 7282041
+  },
+  {
+    "key": "Burkina Faso",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 17322796
+  },
+  {
+    "key": "Burundi",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 10163000
+  },
+  {
+    "key": "Cambodia",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 15135000
+  },
+  {
+    "key": "Cameroon",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 20386799
+  },
+  {
+    "key": "Canada",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": 35158304
+  },
+  {
+    "key": "Cape Verde",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 491875
+  },
+  {
+    "key": "Cayman Islands",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 55456
+  },
+  {
+    "key": "Central African Republic",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 4616000
+  },
+  {
+    "key": "Chad",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 12825000
+  },
+  {
+    "key": "Chile",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 16634603
+  },
+  {
+    "key": "China",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 1361170000
+  },
+  {
+    "key": "Christmas Island",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "value": 2072
+  },
+  {
+    "key": "Cocos (Keeling) Islands",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "value": 550
+  },
+  {
+    "key": "Colombia",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 47330000
+  },
+  {
+    "key": "Comoros",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 724300
+  },
+  {
+    "key": "Republic of the Congo",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 4448000
+  },
+  {
+    "key": "Democratic Republic of the Congo",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 67514000
+  },
+  {
+    "key": "Cook Islands",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 14974
+  },
+  {
+    "key": "Costa Rica",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 4667096
+  },
+  {
+    "key": "Côte d'Ivoire",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": -1
+  },
+  {
+    "key": "Croatia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 4290612
+  },
+  {
+    "key": "Cuba",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 11167325
+  },
+  {
+    "key": "Curaçao",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 150563
+  },
+  {
+    "key": "Cyprus",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 865878
+  },
+  {
+    "key": "Czech Republic",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 10512900
+  },
+  {
+    "key": "Denmark",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 5623501
+  },
+  {
+    "key": "Djibouti",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 864618
+  },
+  {
+    "key": "Dominica",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 71293
+  },
+  {
+    "key": "Dominican Republic",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 9445281
+  },
+  {
+    "key": "Ecuador",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 15617900
+  },
+  {
+    "key": "Egypt",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 83661000
+  },
+  {
+    "key": "El Salvador",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 6340000
+  },
+  {
+    "key": "Equatorial Guinea",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 1622000
+  },
+  {
+    "key": "Eritrea",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 6333000
+  },
+  {
+    "key": "Estonia",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 1286540
+  },
+  {
+    "key": "Ethiopia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 86613986
+  },
+  {
+    "key": "Falkland Islands",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 2563
+  },
+  {
+    "key": "Faroe Islands",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 48509
+  },
+  {
+    "key": "Fiji",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "value": 858038
+  },
+  {
+    "key": "Finland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 5445883
+  },
+  {
+    "key": "France",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 65806000
+  },
+  {
+    "key": "French Guiana",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 229040
+  },
+  {
+    "key": "French Polynesia",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 268270
+  },
+  {
+    "key": "French Southern and Antarctic Lands",
+    "region": "",
+    "subregion": "",
+    "value": -1
+  },
+  {
+    "key": "Gabon",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 1672000
+  },
+  {
+    "key": "Gambia",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": -1
+  },
+  {
+    "key": "Georgia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": -1
+  },
+  {
+    "key": "Germany",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 80523700
+  },
+  {
+    "key": "Ghana",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 24658823
+  },
+  {
+    "key": "Gibraltar",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 29752
+  },
+  {
+    "key": "Greece",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 10815197
+  },
+  {
+    "key": "Greenland",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": 56370
+  },
+  {
+    "key": "Grenada",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 103328
+  },
+  {
+    "key": "Guadeloupe",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 403355
+  },
+  {
+    "key": "Guam",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 159358
+  },
+  {
+    "key": "Guatemala",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 15438384
+  },
+  {
+    "key": "Guernsey",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 62431
+  },
+  {
+    "key": "Guinea",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 10824200
+  },
+  {
+    "key": "Guinea-Bissau",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 1704000
+  },
+  {
+    "key": "Guyana",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 784894
+  },
+  {
+    "key": "Haiti",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 10413211
+  },
+  {
+    "key": "Heard Island and McDonald Islands",
+    "region": "",
+    "subregion": "",
+    "value": -1
+  },
+  {
+    "key": "Vatican City",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 800
+  },
+  {
+    "key": "Honduras",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 8555072
+  },
+  {
+    "key": "Hong Kong",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 7184000
+  },
+  {
+    "key": "Hungary",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 9906000
+  },
+  {
+    "key": "Iceland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 325010
+  },
+  {
+    "key": "India",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 1236670000
+  },
+  {
+    "key": "Indonesia",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 237641326
+  },
+  {
+    "key": "Iran",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 77068000
+  },
+  {
+    "key": "Iraq",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 34035000
+  },
+  {
+    "key": "Ireland",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": -1
+  },
+  {
+    "key": "Isle of Man",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 84497
+  },
+  {
+    "key": "Israel",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 8092700
+  },
+  {
+    "key": "Italy",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 59829079
+  },
+  {
+    "key": "Jamaica",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 2711476
+  },
+  {
+    "key": "Japan",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 127290000
+  },
+  {
+    "key": "Jersey",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 97857
+  },
+  {
+    "key": "Jordan",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 6512600
+  },
+  {
+    "key": "Kazakhstan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "value": 17099000
+  },
+  {
+    "key": "Kenya",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 44354000
+  },
+  {
+    "key": "Kiribati",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 106461
+  },
+  {
+    "key": "Kuwait",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 3582054
+  },
+  {
+    "key": "Kyrgyzstan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "value": 5551900
+  },
+  {
+    "key": "Laos",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 6580800
+  },
+  {
+    "key": "Latvia",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 2014000
+  },
+  {
+    "key": "Lebanon",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 4822000
+  },
+  {
+    "key": "Lesotho",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "value": 2074000
+  },
+  {
+    "key": "Liberia",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 4294000
+  },
+  {
+    "key": "Libya",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 6202000
+  },
+  {
+    "key": "Liechtenstein",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 36842
+  },
+  {
+    "key": "Lithuania",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 2950684
+  },
+  {
+    "key": "Luxembourg",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 537000
+  },
+  {
+    "key": "Macau",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": -1
+  },
+  {
+    "key": "Macedonia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": -1
+  },
+  {
+    "key": "Madagascar",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 20696070
+  },
+  {
+    "key": "Malawi",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 16363000
+  },
+  {
+    "key": "Malaysia",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 29793600
+  },
+  {
+    "key": "Maldives",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 317280
+  },
+  {
+    "key": "Mali",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 15302000
+  },
+  {
+    "key": "Malta",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 416055
+  },
+  {
+    "key": "Marshall Islands",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 56086
+  },
+  {
+    "key": "Martinique",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 394173
+  },
+  {
+    "key": "Mauritania",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 3461041
+  },
+  {
+    "key": "Mauritius",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 1257900
+  },
+  {
+    "key": "Mayotte",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 212600
+  },
+  {
+    "key": "Mexico",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 118395054
+  },
+  {
+    "key": "Micronesia",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": -1
+  },
+  {
+    "key": "Moldova",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 3559500
+  },
+  {
+    "key": "Monaco",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 36136
+  },
+  {
+    "key": "Mongolia",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 2754685
+  },
+  {
+    "key": "Montenegro",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 620029
+  },
+  {
+    "key": "Montserrat",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 4922
+  },
+  {
+    "key": "Morocco",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 33087700
+  },
+  {
+    "key": "Mozambique",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 23700715
+  },
+  {
+    "key": "Myanmar",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": -1
+  },
+  {
+    "key": "Namibia",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "value": 2113077
+  },
+  {
+    "key": "Nauru",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 9945
+  },
+  {
+    "key": "Nepal",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 26494504
+  },
+  {
+    "key": "Netherlands",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 16807300
+  },
+  {
+    "key": "New Caledonia",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "value": 258958
+  },
+  {
+    "key": "New Zealand",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "value": 4478810
+  },
+  {
+    "key": "Nicaragua",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 6071045
+  },
+  {
+    "key": "Niger",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 17129076
+  },
+  {
+    "key": "Nigeria",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 173615000
+  },
+  {
+    "key": "Niue",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 1613
+  },
+  {
+    "key": "Norfolk Island",
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "value": 2302
+  },
+  {
+    "key": "North Korea",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 24895000
+  },
+  {
+    "key": "Northern Mariana Islands",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 53883
+  },
+  {
+    "key": "Norway",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 5077798
+  },
+  {
+    "key": "Oman",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 3929000
+  },
+  {
+    "key": "Pakistan",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 184845000
+  },
+  {
+    "key": "Palau",
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "value": 20901
+  },
+  {
+    "key": "Palestine",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": -1
+  },
+  {
+    "key": "Panama",
+    "region": "Americas",
+    "subregion": "Central America",
+    "value": 3405813
+  },
+  {
+    "key": "Papua New Guinea",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "value": 7059653
+  },
+  {
+    "key": "Paraguay",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 6783374
+  },
+  {
+    "key": "Peru",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 30475144
+  },
+  {
+    "key": "Philippines",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 98678000
+  },
+  {
+    "key": "Pitcairn Islands",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 56
+  },
+  {
+    "key": "Poland",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 38533299
+  },
+  {
+    "key": "Portugal",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 10562178
+  },
+  {
+    "key": "Puerto Rico",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 3667084
+  },
+  {
+    "key": "Qatar",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 2024707
+  },
+  {
+    "key": "Republic of Kosovo",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 1733842
+  },
+  {
+    "key": "Réunion",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 821136
+  },
+  {
+    "key": "Romania",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 20121641
+  },
+  {
+    "key": "Russia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 143500000
+  },
+  {
+    "key": "Rwanda",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 10537222
+  },
+  {
+    "key": "Saint Barthélemy",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 8938
+  },
+  {
+    "key": "Saint Helena",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": -1
+  },
+  {
+    "key": "Saint Kitts and Nevis",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 54000
+  },
+  {
+    "key": "Saint Lucia",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 166526
+  },
+  {
+    "key": "Saint Martin",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": -1
+  },
+  {
+    "key": "Saint Pierre and Miquelon",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": 6081
+  },
+  {
+    "key": "Saint Vincent and the Grenadines",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 109000
+  },
+  {
+    "key": "Samoa",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 187820
+  },
+  {
+    "key": "San Marino",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 32509
+  },
+  {
+    "key": "São Tomé and Príncipe",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 187356
+  },
+  {
+    "key": "Saudi Arabia",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 29994272
+  },
+  {
+    "key": "Senegal",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 13567338
+  },
+  {
+    "key": "Serbia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 7181505
+  },
+  {
+    "key": "Seychelles",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 90945
+  },
+  {
+    "key": "Sierra Leone",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 6190280
+  },
+  {
+    "key": "Singapore",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 5399200
+  },
+  {
+    "key": "Sint Maarten",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 37429
+  },
+  {
+    "key": "Slovakia",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 5412008
+  },
+  {
+    "key": "Slovenia",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 2061405
+  },
+  {
+    "key": "Solomon Islands",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "value": 561000
+  },
+  {
+    "key": "Somalia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 10496000
+  },
+  {
+    "key": "South Africa",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "value": 52981991
+  },
+  {
+    "key": "South Georgia",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": -1
+  },
+  {
+    "key": "South Korea",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 50219669
+  },
+  {
+    "key": "South Sudan",
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "value": 11296000
+  },
+  {
+    "key": "Spain",
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "value": 46704314
+  },
+  {
+    "key": "Sri Lanka",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "value": 20277597
+  },
+  {
+    "key": "Sudan",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 37964000
+  },
+  {
+    "key": "Suriname",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 534189
+  },
+  {
+    "key": "Svalbard and Jan Mayen",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 2655
+  },
+  {
+    "key": "Swaziland",
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "value": 1250000
+  },
+  {
+    "key": "Sweden",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 9625444
+  },
+  {
+    "key": "Switzerland",
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "value": 8085300
+  },
+  {
+    "key": "Syria",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 21898000
+  },
+  {
+    "key": "Taiwan",
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "value": 23361147
+  },
+  {
+    "key": "Tajikistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "value": 8000000
+  },
+  {
+    "key": "Tanzania",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 44928923
+  },
+  {
+    "key": "Thailand",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 65926261
+  },
+  {
+    "key": "Timor-Leste",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": -1
+  },
+  {
+    "key": "Togo",
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "value": 6191155
+  },
+  {
+    "key": "Tokelau",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 1411
+  },
+  {
+    "key": "Tonga",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 103036
+  },
+  {
+    "key": "Trinidad and Tobago",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 1328019
+  },
+  {
+    "key": "Tunisia",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 10833431
+  },
+  {
+    "key": "Turkey",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 75627384
+  },
+  {
+    "key": "Turkmenistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "value": 5240000
+  },
+  {
+    "key": "Turks and Caicos Islands",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 31458
+  },
+  {
+    "key": "Tuvalu",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 11323
+  },
+  {
+    "key": "Uganda",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 35357000
+  },
+  {
+    "key": "Ukraine",
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "value": 45461627
+  },
+  {
+    "key": "United Arab Emirates",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 8264070
+  },
+  {
+    "key": "United Kingdom",
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "value": 63705000
+  },
+  {
+    "key": "United States",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": 317101000
+  },
+  {
+    "key": "United States Minor Outlying Islands",
+    "region": "Americas",
+    "subregion": "Northern America",
+    "value": -1
+  },
+  {
+    "key": "United States Virgin Islands",
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "value": 106405
+  },
+  {
+    "key": "Uruguay",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 3286314
+  },
+  {
+    "key": "Uzbekistan",
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "value": 30183400
+  },
+  {
+    "key": "Vanuatu",
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "value": 264652
+  },
+  {
+    "key": "Venezuela",
+    "region": "Americas",
+    "subregion": "South America",
+    "value": 28946101
+  },
+  {
+    "key": "Vietnam",
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "value": 90388000
+  },
+  {
+    "key": "Wallis and Futuna",
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "value": 13135
+  },
+  {
+    "key": "Western Sahara",
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "value": 567000
+  },
+  {
+    "key": "Yemen",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "value": 24527000
+  },
+  {
+    "key": "Zambia",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 13092666
+  },
+  {
+    "key": "Zimbabwe",
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "value": 12973808
+  }
+];
+            var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
+           // main({title: "Exit Monitoring"}, {key: "World", values: data});
+            main({title: ""}, {key: "INDIA", values: data});
+       
+   
+}
+
+
+</script>
+
+
+</body>
+</html>
